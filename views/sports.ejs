@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <title>WOBI</title>
+
+  <meta charset="utf-8">
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="">
+
+  <!-- Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,600,700%7CSource+Sans+Pro:400,600,700' rel='stylesheet'>
+
+  <!-- Css -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/assets/css/font-icons.css" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets//assets/img/apple-touch-icon.html">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets//assets/img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets//assets/img/apple-touch-icon-114x114.png">
+
+  <!-- Lazyload (must be placed in head in order to work) -->
+  <script src="/assets/js/lazysizes.min.js"></script>
+
+  <script src="/assets/js/xml2json.js"></script>
+
+  <!-- angular js  -->
+
+  <script src="/assets/js/angular-1.7.2/angular.min.js"></script>
+
+</head>
+
+<body class="bg-light style-default style-rounded" ng-controller="feedsCtlr">
+
+  <!-- Preloader -->
+  <div class="loader-mask">
+    <div class="loader">
+      <div></div>
+    </div>
+  </div>
+
+  <!-- Bg Overlay -->
+  <div class="content-overlay"></div>
+
+  <!-- Sidenav -->    
+  <header class="sidenav" id="sidenav">
+
+    <!-- close -->
+    <div class="sidenav__close">
+      <button class="sidenav__close-button" id="sidenav__close-button" aria-label="close sidenav">
+        <i class="ui-close sidenav__close-icon"></i>
+      </button>
+    </div>
+    
+    <!-- Nav -->
+    <nav class="sidenav__menu-container">
+      <ul class="sidenav__menu" role="menubar">
+        <li>
+          <a href="/" class="sidenav__menu-url">Home</a>
+          </li>
+        <li>
+          <a href="/latest" class="sidenav__menu-url">Latest News</a>
+        </li>
+        <li>
+          <a href="#" class="sidenav__menu-url">Politics</a>
+        </li>        
+
+        <!-- Categories -->
+        <li>
+          <a href="/lifestyle" class="sidenav__menu-url">Lyfestyle</a>
+        </li>
+        <li>
+          <a href="/business" class="sidenav__menu-url">Business</a>
+        </li>
+        <li>
+          <a href="/sports" class="sidenav__menu-url">Sports</a>
+        </li>
+         <li>
+          <a href="/entertainment" class="sidenav__menu-url">Entertainment</a>
+        </li>
+       
+        <!-- Categories -->
+        <li>
+          <a href="/technology" class="sidenav__menu-url">Technology</a>
+        </li>
+        <li>
+          <a href="/world" class="sidenav__menu-url">World</a>
+        </li>
+        <li>
+          <a href="/fashion" class="sidenav__menu-url">Fashion</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="socials sidenav__socials"> 
+      <a class="social social-facebook" href="#" target="_blank" aria-label="facebook">
+        <i class="ui-facebook"></i>
+      </a>
+      <a class="social social-twitter" href="#" target="_blank" aria-label="twitter">
+        <i class="ui-twitter"></i>
+      </a>
+      <a class="social social-google-plus" href="#" target="_blank" aria-label="google">
+        <i class="ui-google"></i>
+      </a>
+      <a class="social social-youtube" href="#" target="_blank" aria-label="youtube">
+        <i class="ui-youtube"></i>
+      </a>
+      <a class="social social-instagram" href="#" target="_blank" aria-label="instagram">
+        <i class="ui-instagram"></i>
+      </a>
+    </div>
+  </header> <!-- end sidenav -->
+
+  <main class="main oh" id="main">
+
+    <!-- Top Bar -->
+    <div class="top-bar d-none d-lg-block" style="height: 50px">
+      <div class="container">
+        <div class="row">
+
+          <!-- Top menu -->
+          <div class="col-lg-6">
+            <ul class="top-menu">
+              <li><a href="#">About</a></li>
+              <!--<li><a href="#">Advertise</a></li>-->
+              <li><a href="#"><i class="fas fa-envelope"></i>Email: ede.obinna27@gmail.com</a></li>
+              <li><a href="#"><i class="fa fa-phone"></i>Phone: +234 809 6461 926</a></li>
+            </ul>
+          </div>
+          
+          <!-- Socials -->
+          <div class="col-lg-6">
+            <div class="socials nav__socials socials--nobase socials--white justify-content-end"> 
+              <a class="social social-facebook" href="#" target="_blank" aria-label="facebook">
+                <i class="ui-facebook"></i>
+              </a>
+              <a class="social social-twitter" href="#" target="_blank" aria-label="twitter">
+                <i class="ui-twitter"></i>
+              </a>
+              <a class="social social-google-plus" href="#" target="_blank" aria-label="google">
+                <i class="ui-google"></i>
+              </a>
+              <a class="social social-youtube" href="#" target="_blank" aria-label="youtube">
+                <i class="ui-youtube"></i>
+              </a>
+              <a class="social social-instagram" href="#" target="_blank" aria-label="instagram">
+                <i class="ui-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div> <!-- end top bar -->        
+
+    <!-- Navigation -->
+    <header class="nav">
+
+      <div class="nav__holder nav--sticky">
+        <div class="container relative">
+          <div class="flex-parent">
+
+            <!-- Side Menu Button -->
+            <button class="nav-icon-toggle" id="nav-icon-toggle" aria-label="Open side menu">
+              <span class="nav-icon-toggle__box">
+                <span class="nav-icon-toggle__inner"></span>
+              </span>
+            </button> 
+
+            <!-- Logo -->
+            <a href="index-2.html" class="logo">
+<!--<img class="logo__img" src="/assets/img/logo_default.png" style="height: 30px;" srcset="/assets/img/logo_default.png 1x, /assets/img/logo_default@2x.png 2x"
+  alt="logo">-->
+            </a>
+
+            <!-- Nav-wrap -->
+             <nav class="flex-child nav__wrap d-none d-lg-block">              
+              <ul class="nav__menu">
+
+                <li class="nav__dropdow">
+                  <a href="/latest">Latest News</a>
+                </li>
+
+               
+
+
+                <li class="nav__dropdow">
+                  <a href="/politics">Politics</a>
+                  <!--<ul class="nav__dropdown-menu nav__megamenu">
+                    <li>
+                      <div class="nav__megamenu-wrap">
+                        <div class="row">
+
+                          <div class="col nav__megamenu-item">
+                            <article class="entry">
+                              <div class="entry__img-holder">
+                                <a href="single-post.html">
+                                  <img src="/assets/img/content/grid/grid_post_1.jpg" alt="" class="entry__img">
+                                </a>
+                                <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">world</a>
+                              </div>
+
+                              <div class="entry__body">   
+                                <h2 class="entry__title">
+                                  <a href="single-post.html">Follow These Smartphone Habits of Successful Entrepreneurs</a>
+                                </h2>
+                              </div>
+                            </article>
+                          </div>
+
+                          <div class="col nav__megamenu-item">
+                            <article class="entry">
+                              <div class="entry__img-holder">
+                                <a href="single-post.html">
+                                  <img src="/assets/img/content/grid/grid_post_2.jpg" alt="" class="entry__img">
+                                </a>
+                                <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--purple">fashion</a>
+                              </div>
+
+                              <div class="entry__body">   
+                                <h2 class="entry__title">
+                                  <a href="single-post.html">3 Things You Can Do to Get Your Customers Talking About Your Business</a>
+                                </h2>
+                              </div>
+                            </article>
+                          </div>
+
+                          <div class="col nav__megamenu-item">
+                            <article class="entry">
+                              <div class="entry__img-holder">
+                                <a href="single-post.html">
+                                  <img src="/assets/img/content/grid/grid_post_3.jpg" alt="" class="entry__img">
+                                </a>
+                                <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--blue">business</a>
+                              </div>
+
+                              <div class="entry__body">   
+                                <h2 class="entry__title">
+                                  <a href="single-post.html">Lose These 12 Bad Habits If You're Serious About Becoming a Millionaire</a>
+                                </h2>
+                              </div>
+                            </article>
+                          </div>
+
+                          <div class="col nav__megamenu-item">
+                            <article class="entry">
+                              <div class="entry__img-holder">
+                                <a href="single-post.html">
+                                  <img src="/assets/img/content/grid/grid_post_4.jpg" alt="" class="entry__img">
+                                </a>
+                                <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--green">lifestyle</a>
+                              </div>
+
+                              <div class="entry__body">   
+                                <h2 class="entry__title">
+                                  <a href="single-post.html">10 Horrible Habits You're Doing Right Now That Are Draining Your Energy</a>
+                                </h2>
+                              </div>
+                            </article>
+                          </div>
+
+                        </div>
+                      </div>
+                    </li>
+                  </ul>--> <!-- end megamenu -->
+                </li>
+
+                <li class="nav__dropdow">
+                  <a href="/business">Business</a>
+                  <!--<ul class="nav__dropdown-menu">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="search-results.html">Search Results</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="404.html">404</a></li>
+                  </ul>-->
+                </li>                
+
+                <li class="nav__dropdow active">
+                  <a href="/sports">Sports</a>
+                  <!--<ul class="nav__dropdown-menu">
+                  
+                    <li class="nav__dropdown">
+                      <a href="#">Single Post</a>
+                      <ul class="nav__dropdown-menu">
+                        <li><a href="single-post.html">Style 1</a></li>
+                        </ul>
+                    </li>
+                  </ul>-->
+                </li>
+                <li class="nav__dropdow">
+                  <a href="/lifestyle">Lifestyle</a>
+                  <!--<ul class="nav__dropdown-menu">
+                  
+                    <li class="nav__dropdown">
+                      <a href="#">Single Post</a>
+                      <ul class="nav__dropdown-menu">
+                        <li><a href="single-post.html">Style 1</a></li>
+                        </ul>
+                    </li>
+                  </ul>-->
+                </li>
+                <li class="nav__dropdow">
+                  <a href="/entertainment">Entertainment</a>
+                  <!--<ul class="nav__dropdown-menu">
+                  
+                    <li class="nav__dropdown">
+                      <a href="#">Single Post</a>
+                      <ul class="nav__dropdown-menu">
+                        <li><a href="single-post.html">Style 1</a></li>
+                        </ul>
+                    </li>
+                  </ul>-->
+                </li>
+
+                <li class="nav__dropdow">
+                  <a href="/technology">Technology</a>
+                  <!--<ul class="nav__dropdown-menu">
+                  
+                    <li class="nav__dropdown">
+                      <a href="#">Single Post</a>
+                      <ul class="nav__dropdown-menu">
+                        <li><a href="single-post.html">Style 1</a></li>
+                        </ul>
+                    </li>
+                  </ul>-->
+                </li>
+                <li class="nav__dropdow">
+                  <a href="/world">World</a>
+                  <!--<ul class="nav__dropdown-menu">
+                  
+                    <li class="nav__dropdown">
+                      <a href="#">Single Post</a>
+                      <ul class="nav__dropdown-menu">
+                        <li><a href="single-post.html">Style 1</a></li>
+                        </ul>
+                    </li>
+                  </ul>-->
+                </li>
+                <li class="nav__dropdow">
+                  <a href="/fashion">Fashion</a>
+                  <!--<ul class="nav__dropdown-menu">
+                  
+                    <li class="nav__dropdown">
+                      <a href="#">Single Post</a>
+                      <ul class="nav__dropdown-menu">
+                        <li><a href="single-post.html">Style 1</a></li>
+                        </ul>
+                    </li>
+                  </ul>-->
+                </li>
+               <!-- <li class="nav__dropdow">
+                  <a href="">Career</a>
+                  <!--<ul class="nav__dropdown-menu">
+                  
+                    <li class="nav__dropdown">
+                      <a href="#">Single Post</a>
+                      <ul class="nav__dropdown-menu">
+                        <li><a href="single-post.html">Style 1</a></li>
+                        </ul>
+                    </li>
+                  </ul>
+                </li>-->
+
+
+               
+
+
+              </ul> <!-- end menu -->
+            </nav> <!-- end nav-wrap -->
+
+            <!-- Nav Right -->
+            <div class="nav__right">
+
+              <!-- Search -->
+              <div class="nav__right-item nav__search">
+                <a href="#" class="nav__search-trigger" id="nav__search-trigger">
+                  <i class="ui-search nav__search-trigger-icon"></i>
+                </a>
+                <div class="nav__search-box" id="nav__search-box">
+                  <form class="nav__search-form">
+                    <input type="text" placeholder="Search an article" class="nav__search-input">
+                    <button type="submit" class="search-button btn btn-lg btn-color btn-button">
+                      <i class="ui-search nav__search-icon"></i>
+                    </button>
+                  </form>
+                </div>                
+              </div>             
+
+            </div> <!-- end nav right -->            
+        
+          </div> <!-- end flex-parent -->
+        </div> <!-- end container -->
+
+      </div>
+    </header> <!-- end navigation -->
+  
+
+    <!-- Trending Now -->
+    <div class="container">
+      <div class="trending-now">
+        <span class="trending-now__label" style="background-color: orange;color: #000">
+          <i class="ui-flash"></i>
+        Newspipe</span>
+         <div class="newsticker">
+          <ul class="newsticker__list">
+            <li class="newsticker__item" ng-repeat="i in headLines"><a href="{{i.link}}" class="newsticker__item-url" ><b>{{i.title}}</b>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ccc" am-time-ago="i.pubDate"></span></a></li>
+            <!--<li class="newsticker__item"><a href="single-post-1.html" class="newsticker__item-url">Satelite cost tens of millions or even hundreds of millions of dollars to build</a></li>
+            <li class="newsticker__item"><a href="single-post-3.html" class="newsticker__item-url">8 Hidden Costs of Starting and Running a Business</a></li> -->        
+          </ul>
+        </div>
+        <div class="newsticker-buttons">
+          <button class="newsticker-button newsticker-button--prev" id="newsticker-button--prev" aria-label="next article"><i class="ui-arrow-left"></i></button>
+          <button class="newsticker-button newsticker-button--next" id="newsticker-button--next" aria-label="previous article"><i class="ui-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Posts Grid -->      
+   <!-- <section class="featured-posts-grid">
+      <div class="container">
+        <div class="row row-8">
+
+          <div class="col-lg-6">
+
+            <!-- Small post 
+            <div class="featured-posts-grid__item featured-posts-grid__item--sm">
+              <article class="entry card post-list featured-posts-grid__entry">
+                <div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(/assets/img/content/hero/hero_post_1.jpg)">
+                  <a href="single-post.html" class="thumb-url"></a>
+                  <img src="/assets/img/content/hero/hero_post_1.jpg" alt="" class="entry__img d-none">
+                  <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">World</a>
+                </div>
+
+                <div class="entry__body post-list__body card__body">  
+                  <h2 class="entry__title">
+                    <a href="single-post.html">3 Founders With Booming Businesses Share Stories About Their Difficult Early</a>
+                  </h2>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                      <span>by</span>
+                      <a href="#">junniepat</a>
+                    </li>
+                    <li class="entry__meta-date">
+                      Jan 21, 2018
+                    </li>              
+                  </ul>
+                </div>
+              </article>
+            </div> <!-- end post
+
+            <!-- Small post 
+            <div class="featured-posts-grid__item featured-posts-grid__item--sm">
+              <article class="entry card post-list featured-posts-grid__entry">
+                <div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(/assets/img/content/hero/hero_post_2.jpg)">
+                  <a href="single-post.html" class="thumb-url"></a>
+                  <img src="/assets/img/content/hero/hero_post_2.jpg" alt="" class="entry__img d-none">
+                  <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--purple">Fashion</a>
+                </div>
+
+                <div class="entry__body post-list__body card__body">  
+                  <h2 class="entry__title">
+                    <a href="single-post.html">3 Things You Can Do to Get Your Customers Talking About Your Business</a>
+                  </h2>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                      <span>by</span>
+                      <a href="#">junniepat</a>
+                    </li>
+                    <li class="entry__meta-date">
+                      Jan 21, 2018
+                    </li>              
+                  </ul>
+                </div>
+              </article>
+            </div> <!-- end post
+
+            <!-- Small post 
+            <div class="featured-posts-grid__item featured-posts-grid__item--sm">
+              <article class="entry card post-list featured-posts-grid__entry">
+                <div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(/assets/img/content/hero/hero_post_3.jpg)">
+                  <a href="single-post.html" class="thumb-url"></a>
+                  <img src="/assets/img/content/hero/hero_post_3.jpg" alt="" class="entry__img d-none">
+                  <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--blue">Business</a>
+                </div>
+
+                <div class="entry__body post-list__body card__body">  
+                  <h2 class="entry__title">
+                    <a href="single-post.html">These Are the 20 Best Places to Work in 2018</a>
+                  </h2>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                      <span>by</span>
+                      <a href="#">junniepat</a>
+                    </li>
+                    <li class="entry__meta-date">
+                      Jan 21, 2018
+                    </li>              
+                  </ul>
+                </div>
+              </article>
+            </div> <!-- end post 
+
+          </div> <!-- end col 
+
+          <div class="col-lg-6">
+
+            <!-- Large post 
+            <div class="featured-posts-grid__item featured-posts-grid__item--lg">
+              <article class="entry card featured-posts-grid__entry">
+                <div class="entry__img-holder card__img-holder">
+                  <a href="single-post.html">
+                    <img src="/assets/img/content/hero/hero_post_4.jpg" alt="" class="entry__img">
+                  </a>
+                  <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--green">Lifestyle</a>
+                </div>
+
+                <div class="entry__body card__body">   
+                  <h2 class="entry__title">
+                    <a href="single-post.html">What Days and Hours are PH Online Shoppers Most Likely to Buy?</a>
+                  </h2>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                      <span>by</span>
+                      <a href="#">junniepat</a>
+                    </li>
+                    <li class="entry__meta-date">
+                      Jan 21, 2018
+                    </li>              
+                  </ul>
+                </div>
+              </article>
+            </div> <!-- end large post 
+          </div>          
+
+        </div>
+      </div>
+    </section> --><!-- end featured posts grid -->
+
+    <div class="main-container container pt-24" id="main-container">         
+
+      <!-- Content design block 2  goes here-->
+      
+      <!-- end of content design block 2 -->
+
+
+
+
+
+      <!-- Ad Banner 728 -->
+     <!-- <div class="text-center pb-48">
+        <a href="#">
+          <img src="/assets/img/content/placeholder_728.jpg" alt="">
+        </a>
+      </div>-->
+
+      <!-- Carousel posts content design block 3 goes here-->
+     
+      <!-- end of content design block 3 -->
+
+
+
+
+      <!-- Posts from categories content design block goes here-->
+
+
+      <!-- end of content design block 4 -->
+     
+
+      <!-- Video posts content design block 5 goes here-->
+
+
+      <!-- end of content design block 5 -->
+     
+      
+
+      <!-- Content Secondary -->
+      <div class="row">
+
+        <!-- Posts -->
+        <div class="col-lg-8 blog__content mb-72">
+
+          <!-- Worldwide News -->
+          <section class="section">
+            <div class="title-wrap title-wrap--line">
+              <h3 class="section-title">Latest News</h3>
+              <!--<a href="#" class="all-posts-url">View All</a>-->
+              <input type="text" name="" style="width: 50%;float: right;padding: 10px 10px" ng-model="news" placeholder="Filter by headline, news source, category or date">
+            </div>
+
+            
+            <article class="entry card post-list widget widget_categories p-3">
+              <ul>
+              <li ng-repeat="j in headLines | orderBy: '-pubDate' | filter: news" ng-if="j.type == 'news' || 'latest'"><a href="{{j.link}}" target="_blank"><b>{{j.title}}</b> &nbsp;&nbsp;&nbsp;<span style="color: #ccc">{{j.name}}</span>&nbsp;<small am-time-ago="j.pubDate"></small></a></li>
+              </ul>
+
+            </article>
+
+           <!-- <article class="entry card post-list">
+              <div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(/assets/img/content/list/list_post_2.jpg)">
+                <a href="single-post.html" class="thumb-url"></a>
+                <img src="/assets/img/content/list/list_post_2.jpg" alt="" class="entry__img d-none">
+                <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--purple">Fashion</a>
+              </div>
+
+              <div class="entry__body post-list__body card__body">
+                <div class="entry__header">
+                  <h2 class="entry__title">
+                    <a href="single-post.html">This Co-Working Space is a One-Stop Shop</a>
+                  </h2>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                      <span>by</span>
+                      <a href="#">junniepat</a>
+                    </li>
+                    <li class="entry__meta-date">
+                      Jan 21, 2018
+                    </li>
+                  </ul>
+                </div>        
+                <div class="entry__excerpt">
+                  <p>iPrice Group report offers insights on daily e-commerce activity in the ...</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="entry card post-list">
+              <div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(/assets/img/content/list/list_post_3.jpg)">
+                <a href="single-post.html" class="thumb-url"></a>
+                <img src="/assets/img/content/list/list_post_3.jpg" alt="" class="entry__img d-none">
+                <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--orange">Mining</a>
+              </div>
+
+              <div class="entry__body post-list__body card__body">
+                <div class="entry__header">
+                  <h2 class="entry__title">
+                    <a href="single-post.html">This 6-Year-Old Kid Reportedly Earned US$11 Million on YouTube</a>
+                  </h2>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                      <span>by</span>
+                      <a href="#">junniepat</a>
+                    </li>
+                    <li class="entry__meta-date">
+                      Jan 21, 2018
+                    </li>
+                  </ul>
+                </div>        
+                <div class="entry__excerpt">
+                  <p>iPrice Group report offers insights on daily e-commerce activity in the ...</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="entry card post-list">
+              <div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(/assets/img/content/list/list_post_4.jpg)">
+                <a href="single-post.html" class="thumb-url"></a>
+                <img src="/assets/img/content/list/list_post_4.jpg" alt="" class="entry__img d-none">
+                <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">World</a>
+              </div>
+
+              <div class="entry__body post-list__body card__body">
+                <div class="entry__header">
+                  <h2 class="entry__title">
+                    <a href="single-post.html">Rating Agency Breaks with Financial Community </a>
+                  </h2>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                      <span>by</span>
+                      <a href="#">junniepat</a>
+                    </li>
+                    <li class="entry__meta-date">
+                      Jan 21, 2018
+                    </li>
+                  </ul>
+                </div>        
+                <div class="entry__excerpt">
+                  <p>iPrice Group report offers insights on daily e-commerce activity in the ...</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="entry card post-list">
+              <div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(/assets/img/content/list/list_post_5.jpg)">
+                <a href="single-post.html" class="thumb-url"></a>
+                <img src="/assets/img/content/list/list_post_5.jpg" alt="" class="entry__img d-none">
+                <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--red">Investment</a>
+              </div>
+
+              <div class="entry__body post-list__body card__body">
+                <div class="entry__header">
+                  <h2 class="entry__title">
+                    <a href="single-post.html">Decentralized Exchanges (DEX) – What Are They?</a>
+                  </h2>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                      <span>by</span>
+                      <a href="#">junniepat</a>
+                    </li>
+                    <li class="entry__meta-date">
+                      Jan 21, 2018
+                    </li>
+                  </ul>
+                </div>        
+                <div class="entry__excerpt">
+                  <p>iPrice Group report offers insights on daily e-commerce activity in the ...</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="entry card post-list">
+              <div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(/assets/img/content/list/list_post_6.jpg)">
+                <a href="single-post.html" class="thumb-url"></a>
+                <img src="/assets/img/content/list/list_post_6.jpg" alt="" class="entry__img d-none">
+                <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--cyan">Technology</a>
+              </div>
+
+              <div class="entry__body post-list__body card__body">
+                <div class="entry__header">
+                  <h2 class="entry__title">
+                    <a href="single-post.html">Decentralized Exchanges (DEX) – What Are They?</a>
+                  </h2>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                      <span>by</span>
+                      <a href="#">junniepat</a>
+                    </li>
+                    <li class="entry__meta-date">
+                      Jan 21, 2018
+                    </li>
+                  </ul>
+                </div>        
+                <div class="entry__excerpt">
+                  <p>iPrice Group report offers insights on daily e-commerce activity in the ...</p>
+                </div>
+              </div>
+            </article>-->
+          </section> <!-- end worldwide news -->
+
+          <!-- Pagination -->
+          <nav class="pagination">
+            <span class="pagination__page pagination__page--current">1</span>
+            <a href="#" class="pagination__page">2</a>
+            <a href="#" class="pagination__page">3</a>
+            <a href="#" class="pagination__page">4</a>
+            <a href="#" class="pagination__page pagination__icon pagination__page--next"><i class="ui-arrow-right"></i></a>
+          </nav>
+
+        </div> <!-- end posts -->
+
+        <!-- Sidebar 1 -->
+        <aside class="col-lg-4 sidebar sidebar--1 sidebar--right">
+
+          <!-- Widget Ad 300 -->
+          <!--<aside class="widget widget_media_image">
+            <a href="#">
+              <img src="/assets/img/content/placeholder_336.jpg" alt="">
+            </a>
+          </aside>--> <!-- end widget ad 300 -->
+          
+          <!-- Widget Categories -->
+          <!--<aside class="widget widget_categories">
+            <h4 class="widget-title">Categories</h4>
+            <ul>
+              <li><a href="categories.html">World <span class="categories-count">5</span></a></li>
+              <li><a href="categories.html">Lifestyle <span class="categories-count">7</span></a></li>
+              <li><a href="categories.html">Business <span class="categories-count">5</span></a></li>
+              <li><a href="categories.html">Fashion <span class="categories-count">8</span></a></li>
+              <li><a href="categories.html">Investment <span class="categories-count">10</span></a></li>
+              <li><a href="categories.html">Technology <span class="categories-count">6</span></a></li>
+            </ul>
+          </aside>--> <!-- end widget categories -->
+
+          <aside class="widget widget_categories" ng-cloak>
+            <h4 class="widget-title">Top Stories</h4>
+            <ul>
+              <li ng-repeat="n in headLines | orderBy: '-pubDate'"><a href="{{n.link}}">{{n.title}}&nbsp;&nbsp;<small am-time-ago="n.pubDate" style="color: #ccc"></small></a></li>
+              <!--<li><a href="categories.html">Lifestyle <span class="categories-count">7</span></a></li>
+              <li><a href="categories.html">Business <span class="categories-count">5</span></a></li>
+              <li><a href="categories.html">Fashion <span class="categories-count">8</span></a></li>
+              <li><a href="categories.html">Investment <span class="categories-count">10</span></a></li>
+              <li><a href="categories.html">Technology <span class="categories-count">6</span></a></li>-->
+            </ul>
+          </aside>
+
+
+          <!-- Widget Recommended (Rating) -->
+         <!-- <aside class="widget widget-rating-posts">
+            <h4 class="widget-title">Recommended</h4>
+            <article class="entry">
+              <div class="entry__img-holder">
+                <a href="single-post.html">
+                  <div class="thumb-container thumb-60">
+                    <img data-src="/assets/img/content/review/review_post_1.jpg" src="/assets/img/empty.png" class="entry__img lazyload" alt="">
+                  </div>
+                </a>
+              </div>
+
+              <div class="entry__body">
+                <div class="entry__header">
+                  
+                  <h2 class="entry__title">
+                    <a href="single-post.html">UN’s WFP Building Up Blockchain-Based Payments System</a>
+                  </h2>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                      <span>by</span>
+                      <a href="#">junniepat</a>
+                    </li>
+                    <li class="entry__meta-date">
+                      Jan 21, 2018
+                    </li>
+                  </ul>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-rating">
+                      <i class="ui-star"></i><!--
+                      <i class="ui-star"></i><!--
+                      <i class="ui-star"></i><!--
+                      <i class="ui-star"></i><!--
+                      <i class="ui-star-empty"></i>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="entry">
+              <div class="entry__img-holder">
+                <a href="single-post.html">
+                  <div class="thumb-container thumb-60">
+                    <img data-src="/assets/img/content/review/review_post_2.jpg" src="/assets/img/empty.png" class="entry__img lazyload" alt="">
+                  </div>
+                </a>
+              </div>
+
+              <div class="entry__body">
+                <div class="entry__header">
+                  
+                  <h2 class="entry__title">
+                    <a href="single-post.html">4 credit card tips to make business travel easier</a>
+                  </h2>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                      <span>by</span>
+                      <a href="#">junniepat</a>
+                    </li>
+                    <li class="entry__meta-date">
+                      Jan 21, 2018
+                    </li>
+                  </ul>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-rating">
+                      <i class="ui-star"></i><!--
+                      <i class="ui-star"></i><!--
+                      <i class="ui-star"></i><!--
+                      <i class="ui-star"></i><!--
+                      <i class="ui-star-empty"></i>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </aside>--> <!-- end widget recommended (rating) -->
+        </aside> <!-- end sidebar 1 -->
+      </div> <!-- content secondary -->      
+      
+
+    </div> <!-- end main container -->
+
+    <!-- Footer -->
+    <footer class="footer footer--dark">
+      <div class="container">
+        <div class="footer__widgets">
+          <div class="row">
+
+            <div class="col-lg-3 col-md-6">
+              <aside class="widget widget-logo">
+                <a href="index-2.html">
+<img src="/assets/img/logo_default_white.png" style="height: 30px;" srcset="/assets/img/logo_default_white.png 1x, /assets/img/logo_default_white@2x.png 2x"
+  class="logo__img" alt="">
+                </a>
+                <p class="copyright">
+                  © 2018 WOBI
+                </p>
+                <div class="socials socials--large socials--rounded mb-24">
+                  <a href="#" class="social social-facebook" aria-label="facebook"><i class="ui-facebook"></i></a>
+                  <a href="#" class="social social-twitter" aria-label="twitter"><i class="ui-twitter"></i></a>
+                  <a href="#" class="social social-google-plus" aria-label="google+"><i class="ui-google"></i></a>
+                  <a href="#" class="social social-youtube" aria-label="youtube"><i class="ui-youtube"></i></a>
+                  <a href="#" class="social social-instagram" aria-label="instagram"><i class="ui-instagram"></i></a>
+                </div>
+              </aside>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+              <aside class="widget widget_nav_menu">
+                <h4 class="widget-title">Useful Links</h4>
+                <ul>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="contact.html">News</a></li>
+                  <li><a href="categories.html">Advertise</a></li>
+                  <li><a href="shortcodes.html">Support</a></li>
+                  <li><a href="shortcodes.html">Features</a></li>
+                  <li><a href="shortcodes.html">Contact</a></li>
+                </ul>
+              </aside>
+            </div>  
+
+            <div class="col-lg-4 col-md-6">
+              <aside class="widget widget-popular-posts">
+                <h4 class="widget-title">Popular Posts</h4>
+                <ul class="post-list-small">
+                  <li class="post-list-small__item">
+                    <article class="post-list-small__entry clearfix">
+                      <div class="post-list-small__img-holder">
+                        <div class="thumb-container thumb-100">
+                          <a href="single-post.html">
+                            <img data-src="/assets/img/content/post_small/post_small_1.jpg" src="/assets/img/empty.png" alt="" class="post-list-small__img--rounded lazyload">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="post-list-small__body">
+                        <h3 class="post-list-small__entry-title">
+                          <a href="single-post.html">Follow These Smartphone Habits of Successful Entrepreneurs</a>
+                        </h3>
+                        <ul class="entry__meta">
+                          <li class="entry__meta-author">
+                            <span>by</span>
+                            <a href="#">junniepat</a>
+                          </li>
+                          <li class="entry__meta-date">
+                            Jan 21, 2018
+                          </li>
+                        </ul>
+                      </div>                  
+                    </article>
+                  </li>
+                  <li class="post-list-small__item">
+                    <article class="post-list-small__entry clearfix">
+                      <div class="post-list-small__img-holder">
+                        <div class="thumb-container thumb-100">
+                          <a href="single-post.html">
+                            <img data-src="/assets/img/content/post_small/post_small_2.jpg" src="/assets/img/empty.png" alt="" class="post-list-small__img--rounded lazyload">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="post-list-small__body">
+                        <h3 class="post-list-small__entry-title">
+                          <a href="single-post.html">Lose These 12 Bad Habits If You're Serious About Becoming a Millionaire</a>
+                        </h3>
+                        <ul class="entry__meta">
+                          <li class="entry__meta-author">
+                            <span>by</span>
+                            <a href="#">junniepat</a>
+                          </li>
+                          <li class="entry__meta-date">
+                            Jan 21, 2018
+                          </li>
+                        </ul>
+                      </div>                  
+                    </article>
+                  </li>
+                </ul>
+              </aside>              
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <aside class="widget widget_mc4wp_form_widget">
+                <h4 class="widget-title">Newsletter</h4>
+                <p class="newsletter__text">
+                  <i class="ui-email newsletter__icon"></i>
+                  Subscribe for our daily news
+                </p>
+                <form class="mc4wp-form" method="post">
+                  <div class="mc4wp-form-fields">
+                    <div class="form-group">
+                      <input type="email" name="EMAIL" placeholder="Your email" required="">
+                    </div>
+                    <div class="form-group">
+                      <input type="submit" class="btn btn-lg btn-color" value="Sign Up">
+                    </div>
+                  </div>
+                </form>                
+              </aside>
+            </div>
+
+          </div>
+        </div>    
+      </div> <!-- end container -->
+    </footer> <!-- end footer -->
+
+    <div id="back-to-top">
+      <a href="#top" aria-label="Go to top"><i class="ui-arrow-up"></i></a>
+    </div>
+
+  </main> <!-- end main-wrapper -->
+
+  <!-- angular code -->
+  <script src="/assets/js/angular-1.7.2/angular-resource.min.js"></script>
+  <script src="/assets/js/client.js"></script>  
+  <script type="text/javascript" src="/assets/js/moment.min.js"></script>
+  <script src="/assets/js/angular-moment.min.js"></script>  
+  <script src="/assets/js/client.js"></script>
+  <!-- jQuery Scripts -->
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/easing.min.js"></script>
+  <script src="/assets/js/owl-carousel.min.js"></script>
+  <script src="/assets/js/flickity.pkgd.min.js"></script>
+  <script src="/assets/js/twitterFetcher_min.js"></script>
+  <script src="/assets/js/jquery.newsTicker.min.js"></script>  
+  <script src="/assets/js/modernizr.min.js"></script>
+  <script src="/assets/js/scripts.js"></script>
+
+</body>
+
+</html>
