@@ -6,7 +6,7 @@
 		var url2 =  (window.location.pathname === '/') ? window.location.href + "feeds" : window.location.href + "/feeds";
 	  return {
 	    getHttp: function(url,type,name,callback,featured){
-	    	resource = url2 + '?url=' + url;
+	    	resource = url2 + '?url=' + url + "&protocol=http";
 	      $http.get(
 	          resource,
 	          {transformResponse:function(data) {
@@ -32,9 +32,10 @@
 	      }
 	    },
 
-	     getHttps: function(url,type,name,callback,featured){	    	
+	     getHttps: function(url,type,name,callback,featured){
+	      resource = url2 + '?url=' + url + "&protocol=https";	    	
 	      $http.get(
-	          url,
+	          resource,
 	          {transformResponse:function(data) {
 	            // convert the data to JSON and provide
 	            // it to the success function below            	
@@ -42,7 +43,9 @@
               var json = x2js.xml_str2json(data);
               return json;
             },
-            headers: {"Content-Type":undefined}
+            headers: {
+            	"Content-Type":undefined,
+            }
 	        }
 	      )
 	      .then(successCallback,errorCallback)
@@ -57,6 +60,34 @@
 	      	callback(type,name,data,featured)
 	      }
 	    },
+	    outRequets: function(url,type,name,callback,featured){
+	      //resource = url2 + '?url=' + url + "&protocol=https";	    	
+	      $http.get(
+	          url,
+	          {transformResponse:function(data) {
+	            // convert the data to JSON and provide
+	            // it to the success function below            	
+              var x2js = new X2JS();              
+              var json = x2js.xml_str2json(data);
+              return json;
+            },
+            headers: {
+            	"Content-Type":undefined,
+            }
+	        }
+	      )
+	      .then(successCallback,errorCallback)
+	      
+
+	      function errorCallback(err) {
+	      	console.log(err)
+	      }
+
+	      function successCallback(data) {
+	      	//console.log(data)
+	      	callback(type,name,data,featured)
+	      }
+	    }
 
 	  }
 
@@ -113,7 +144,7 @@
 			 name: 'Sahara Reporters',
 			 url : "http://saharareporters.com/feeds/entertainment/feed",
 			 type: "entertainment",
-			 protocol: "http"
+			 protocol: "https"
 			},
 			{
 			 name: 'Sahara Reporters',
@@ -143,31 +174,31 @@
 				name: "Daily Trust",
 				url: "https://www.dailytrust.com.ng/rss/feed.aspx?cat_id=1",
 				type: "latest news",
-				protocol: "http"
+				protocol: "https"
 			},
 			{
 				name: "Daily Trust",
 				url: "https://www.dailytrust.com.ng/rss/feed.aspx?cat_id=2",
 				type: "news",
-				protocol: "http"
+				protocol: "https"
 			},
 			{
 				name: "Daily Trust",
 				url: "https://www.dailytrust.com.ng/rss/feed.aspx?cat_id=4",
 				type: "politics",
-				protocol: "http"
+				protocol: "https"
 			},
 			{
 				name: "Daily Trust",
 				url: "https://www.dailytrust.com.ng/rss/feed.aspx?cat_id=5",
 				type: "sports",
-				protocol: "http"
+				protocol: "https"
 			},
 			{
 				name: "Daily Trust",
 				url: "https://www.dailytrust.com.ng/rss/feed.aspx?cat_id=3",
 				type: "business",
-				protocol: "http"
+				protocol: "https"
 			}
 		]
 
@@ -176,37 +207,37 @@
 				name: "The Nigerian Voice",
 				url: "https://rss.thenigerianvoice.com/news.xml?cat_id=1&group_id=1",
 				type: "latest news",
-				protocol: "http"
+				protocol: "https"
 			},
 			{
 				name: "The Nigerian Voice",
 				url: "https://rss.thenigerianvoice.com/news.xml?cat_id=1&group_id=5",
 				type: "politics",
-				protocol: "http"
+				protocol: "https"
 			},
 			{
 				name: "The Nigerian Voice",
 				url: "https://rss.thenigerianvoice.com/news.xml?cat_id=1&group_id=6",
 				type: "business",
-				protocol: "http"
+				protocol: "https"
 			},
 			{
 				name: "The Nigerian Voice",
 				url: "https://rss.thenigerianvoice.com/news.xml?cat_id=2",
 				type: "sports",
-				protocol: "http"
+				protocol: "https"
 			},
 			{
 				name: "The Nigerian Voice",
 				url: "https://rss.thenigerianvoice.com/news.xml?cat_id=4",
 				type: "entertainment",
-				protocol: "http"
+				protocol: "https"
 			},
 			{
 				name: "The Nigerian Voice",
 				url: "https://rss.thenigerianvoice.com/news.xml?cat_id=5",
 				type: "lifestyle",
-				protocol: "http"
+				protocol: "https"
 			},
 		]
 
@@ -246,7 +277,7 @@
 				name: "The Guardian",
 				url: "https://guardian.ng/category/news/feed/",
 				type: "latest news",
-				protocol: "http"
+				protocol: "https"
 			},
 			{
 				name: "The Guardian",
@@ -264,7 +295,7 @@
 				name: "The Guardian",
 				url: "https://www.theguardian.com/uk/sport/rss",
 				type: "sports",
-				protocol: "https"
+				protocol: "http"
 			},
 			{
 				name: "The Guardian",
@@ -376,7 +407,7 @@
 				name: "aljazeera news",
 				url: "https://www.aljazeera.com/xml/rss/all.xml",
 				type: "world",
-				protocol: "http"
+				protocol: "https"
 			}
 		]
 
@@ -448,13 +479,13 @@
 				name: "allafrica.com",
 				url: "https://allafrica.com/tools/headlines/rdf/westafrica/headlines.rdf",
 				type: "latest news",
-				protocol: "http"
+				protocol: "https"
 			},
 			{
 				name: "allafrica.com",
 				url: "https://allafrica.com/tools/headlines/rdf/business/headlines.rdf",
 				type: "business",
-				protocol: "http"
+				protocol: "https"
 			}
 		]
 
@@ -470,7 +501,7 @@
 
 		feeds.thesun = [
 			{
-				name: "the sun",
+				name: "sun",
 				url: "http://sunnewsonline.com/feed/",
 				type: "latest news",
 				protocol: "http"
@@ -516,7 +547,7 @@
 				name: "dailypost.ng",
 				url: "http://dailypost.ng/feed/",
 				type: "latest news",
-				protocol: "http"
+				protocol: "https"
 			}
 			
 		]
@@ -536,7 +567,7 @@
 				name: "premiumtimesng",
 				url: "https://www.premiumtimesng.com/feed",
 				type: "latest news",
-				protocol: "http"
+				protocol: "https"
 			}
 			
 		]
