@@ -89,43 +89,43 @@
 			 name: 'Sahara Reporters',
 			 url : "http://saharareporters.com/feeds/latest/feed",
 			 type: "latest news",
-			 protocol: "https"
+			 protocol: "http"
 			},			
 			{
 			 name: 'Sahara Reporters',
 			 url : "http://saharareporters.com/feeds/politics/feed",
 			 type: "politics",
-			 protocol: "https"
+			 protocol: "http"
 			},
 			{
 			 name: 'Sahara Reporters',
 			 url : "http://saharareporters.com/feeds/business/feed",
 			 type: "business",
-			 protocol: "https"
+			 protocol: "http"
 			},
 			{
 			 name: 'Sahara Reporters',
 			 url : "http://saharareporters.com/feeds/sports/feed",
 			 type: "sports",
-			 protocol: "https"
+			 protocol: "http"
 			},
 			{
 			 name: 'Sahara Reporters',
 			 url : "http://saharareporters.com/feeds/entertainment/feed",
 			 type: "entertainment",
-			 protocol: "https"
+			 protocol: "http"
 			},
 			{
 			 name: 'Sahara Reporters',
 			 url : "http://saharareporters.com/feeds/lifestyle/feed",
 			 type: "lifestyle",
-			 protocol: "https"
+			 protocol: "http"
 			},
 			{
 			 name: 'Sahara Reporters',
 			 url : "http://saharareporters.com/feeds/technology/feed",
 			 type: "technology",
-			 protocol: "https"
+			 protocol: "http"
 			}
 			/*
 			{
@@ -143,31 +143,31 @@
 				name: "Daily Trust",
 				url: "https://www.dailytrust.com.ng/rss/feed.aspx?cat_id=1",
 				type: "latest news",
-				protocol: "https"
+				protocol: "http"
 			},
 			{
 				name: "Daily Trust",
 				url: "https://www.dailytrust.com.ng/rss/feed.aspx?cat_id=2",
 				type: "news",
-				protocol: "https"
+				protocol: "http"
 			},
 			{
 				name: "Daily Trust",
 				url: "https://www.dailytrust.com.ng/rss/feed.aspx?cat_id=4",
 				type: "politics",
-				protocol: "https"
+				protocol: "http"
 			},
 			{
 				name: "Daily Trust",
 				url: "https://www.dailytrust.com.ng/rss/feed.aspx?cat_id=5",
 				type: "sports",
-				protocol: "https"
+				protocol: "http"
 			},
 			{
 				name: "Daily Trust",
 				url: "https://www.dailytrust.com.ng/rss/feed.aspx?cat_id=3",
 				type: "business",
-				protocol: "https"
+				protocol: "http"
 			}
 		]
 
@@ -176,37 +176,37 @@
 				name: "The Nigerian Voice",
 				url: "https://rss.thenigerianvoice.com/news.xml?cat_id=1&group_id=1",
 				type: "latest news",
-				protocol: "https"
+				protocol: "http"
 			},
 			{
 				name: "The Nigerian Voice",
 				url: "https://rss.thenigerianvoice.com/news.xml?cat_id=1&group_id=5",
 				type: "politics",
-				protocol: "https"
+				protocol: "http"
 			},
 			{
 				name: "The Nigerian Voice",
 				url: "https://rss.thenigerianvoice.com/news.xml?cat_id=1&group_id=6",
 				type: "business",
-				protocol: "https"
+				protocol: "http"
 			},
 			{
 				name: "The Nigerian Voice",
 				url: "https://rss.thenigerianvoice.com/news.xml?cat_id=2",
 				type: "sports",
-				protocol: "https"
+				protocol: "http"
 			},
 			{
 				name: "The Nigerian Voice",
 				url: "https://rss.thenigerianvoice.com/news.xml?cat_id=4",
 				type: "entertainment",
-				protocol: "https"
+				protocol: "http"
 			},
 			{
 				name: "The Nigerian Voice",
 				url: "https://rss.thenigerianvoice.com/news.xml?cat_id=5",
 				type: "lifestyle",
-				protocol: "https"
+				protocol: "http"
 			},
 		]
 
@@ -246,7 +246,7 @@
 				name: "The Guardian",
 				url: "https://guardian.ng/category/news/feed/",
 				type: "latest news",
-				protocol: "https"
+				protocol: "http"
 			},
 			{
 				name: "The Guardian",
@@ -270,7 +270,7 @@
 				name: "The Guardian",
 				url: "https://www.theguardian.com/world/rss",
 				type: "world",
-				protocol: "https"
+				protocol: "http"
 			}
 		]
 
@@ -376,7 +376,7 @@
 				name: "aljazeera news",
 				url: "https://www.aljazeera.com/xml/rss/all.xml",
 				type: "world",
-				protocol: "https"
+				protocol: "http"
 			}
 		]
 
@@ -448,13 +448,13 @@
 				name: "allafrica.com",
 				url: "https://allafrica.com/tools/headlines/rdf/westafrica/headlines.rdf",
 				type: "latest news",
-				protocol: "https"
+				protocol: "http"
 			},
 			{
 				name: "allafrica.com",
 				url: "https://allafrica.com/tools/headlines/rdf/business/headlines.rdf",
 				type: "business",
-				protocol: "https"
+				protocol: "http"
 			}
 		]
 
@@ -526,7 +526,7 @@
 				name: "daily independent",
 				url: "https://independent.ng/feed/",
 				type: "latest news",
-				protocol: "https"
+				protocol: "http"
 			}
 		]
 
@@ -536,7 +536,7 @@
 				name: "premiumtimesng",
 				url: "https://www.premiumtimesng.com/feed",
 				type: "latest news",
-				protocol: "https"
+				protocol: "http"
 			}
 			
 		]
