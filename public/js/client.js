@@ -548,7 +548,7 @@
 		function($scope,DataSource,feedsFactory,$filter,localManager,$interval){	     
    	 
     var path = window.location.pathname;
-    var category = path.split('/');
+    var category = path.split('/')
 
 
 
