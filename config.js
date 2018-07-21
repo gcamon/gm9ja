@@ -55,8 +55,8 @@ var configuration = function (app,model) {
 	app.set('views', __dirname + '/views');
 
 	app.use(function(req, res, next) {
-		console.log(req.url)
-    res.setHeader("Access-Control-Allow-Origin", "*");
+	console.log(req.url)
+    //res.setHeader("Access-Control-Allow-Origin", "*");
     return next();
   });
 
