@@ -243,19 +243,19 @@
 
 		feeds.vanguard = [
 			{
-				name: "Vanguard",
+				name: "vanguard",
 				url: "https://www.vanguardngr.com/category/national-news/feed",
 				type: "latest news",
 				protocol: "https"
 			},
 			{
-				name: "Vanguard",
+				name: "vanguard",
 				url: "https://www.vanguardngr.com/category/finance/feed",
 				type: "business",
 				protocol: "https"
 			},
 			{
-				name: "Vanguard",
+				name: "vanguard",
 				url: "https://www.vanguardngr.com/category/technology/feed",
 				type: "technology",
 				protocol: "https"
@@ -274,7 +274,7 @@
 
 		feeds.guardian = [
 			{
-				name: "The Guardian",
+				name: "guardian",
 				url: "https://guardian.ng/category/news/feed/",
 				type: "latest news",
 				protocol: "https"
@@ -501,7 +501,7 @@
 
 		feeds.thesun = [
 			{
-				name: "sun",
+				name: "Sun",
 				url: "http://sunnewsonline.com/feed/",
 				type: "latest news",
 				protocol: "http"
@@ -571,6 +571,24 @@
 			}
 			
 		]
+
+		feeds.todayng = [
+			{
+				name: "today.ng",
+				url: "https://www.today.ng/feed",
+				type: "latest news",
+				protocol: "https"
+			}
+		]
+
+		feeds.tribune = [
+			{
+				name: "tribune",
+				url: "http://www.tribuneonlineng.com/feed/",
+				type: "latest news",
+				protocol: "http"
+			}
+		]
 		
 		return feeds;
 
@@ -592,18 +610,19 @@
     	$scope.pageType = "latest news"
     }
 
-    $scope.feeds = feedsFactory.dailyTrust.concat(feedsFactory.sahara.concat(feedsFactory.nigerianVoice.concat(feedsFactory.vanguard.concat(feedsFactory.naij.concat(feedsFactory.guardian.concat(feedsFactory.cnn.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times.concat(feedsFactory.bbc.concat(feedsFactory.news24.concat(feedsFactory.allafrica.concat(feedsFactory.punchng.concat(feedsFactory.thesun.concat(feedsFactory.dailypost.concat(feedsFactory.independent.concat(feedsFactory.premiumTime.concat(feedsFactory.sundaydaily)))))))))))))))));
+    $scope.feeds = feedsFactory.dailyTrust.concat(feedsFactory.sahara.concat(feedsFactory.nigerianVoice.concat(feedsFactory.vanguard.concat(feedsFactory.naij.concat(feedsFactory.guardian.concat(feedsFactory.cnn.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times.concat(feedsFactory.bbc.concat(feedsFactory.news24.concat(feedsFactory.allafrica.concat(feedsFactory.punchng.concat(feedsFactory.thesun.concat(feedsFactory.dailypost.concat(feedsFactory.independent.concat(feedsFactory.premiumTime.concat(feedsFactory.sundaydaily.concat(feedsFactory.todayng.concat(feedsFactory.tribune)))))))))))))))))));
     var list = [];
     var elemPos;
     setData = function(type,name,res,featured) { 
-      console.log(res);
+    	if(name == "naija.ng")
+      	console.log(res);
     	var	newsFeed  = ((res.data.rss) ? res.data.rss.channel.item : res.data.feed.entry) || [];
 
     	for(var k = 0; k < newsFeed.length; k++){
     		var dataSet = {};    		    		
     		dataSet.title = (name !== 'Daily Trust') ? (newsFeed[k].title == "" || newsFeed[k].title == undefined) ? getDescription(newsFeed[k].description) : (newsFeed[k].title ): (name !== 'naija.ng') ? getTitle(newsFeed[k].link) : getTitle(newsFeed[k].id);
 	    	dataSet.type = type;
-	    	dataSet.link = (name !== 'naija.ng') ? newsFeed[k].link : getTitle(newsFeed[k].id);
+	    	dataSet.link = (name !== 'naija.ng') ? newsFeed[k].id : getTitle(newsFeed[k].id);
 	    	dataSet.pubDate = (name !== 'naija.ng') ? (newsFeed[k].pubDate) ? new Date(newsFeed[k].pubDate) : (new Date(res.data.rss.channel.pubDate)) : new Date(newsFeed[k].published);
 	    	dataSet.name = name;
 	      //$scope.dataSet[type] = data;
