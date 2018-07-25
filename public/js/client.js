@@ -589,6 +589,22 @@
 				protocol: "http"
 			}
 		]
+
+		feeds.goalcom = [
+			{
+				name: "goal.com",
+				url: "http://www.goal.com/en-us/feeds/news",
+				type: "latest news",
+				protocol: "http"
+			},
+			{
+				name: "goal.com",
+				url: "http://www.goal.com/en-us/feeds/news",
+				type: "sports",
+				protocol: "http"
+			}
+
+		]
 		
 		return feeds;
 
@@ -610,20 +626,20 @@
     	$scope.pageType = "latest news"
     }
 
-    $scope.feeds = feedsFactory.dailyTrust.concat(feedsFactory.sahara.concat(feedsFactory.nigerianVoice.concat(feedsFactory.vanguard.concat(feedsFactory.naij.concat(feedsFactory.guardian.concat(feedsFactory.cnn.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times.concat(feedsFactory.bbc.concat(feedsFactory.news24.concat(feedsFactory.allafrica.concat(feedsFactory.punchng.concat(feedsFactory.thesun.concat(feedsFactory.dailypost.concat(feedsFactory.independent.concat(feedsFactory.premiumTime.concat(feedsFactory.sundaydaily.concat(feedsFactory.todayng.concat(feedsFactory.tribune)))))))))))))))))));
+    $scope.feeds = feedsFactory.dailyTrust.concat(feedsFactory.sahara.concat(feedsFactory.nigerianVoice.concat(feedsFactory.vanguard.concat(feedsFactory.naij.concat(feedsFactory.guardian.concat(feedsFactory.cnn.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times.concat(feedsFactory.bbc.concat(feedsFactory.news24.concat(feedsFactory.allafrica.concat(feedsFactory.punchng.concat(feedsFactory.thesun.concat(feedsFactory.dailypost.concat(feedsFactory.independent.concat(feedsFactory.premiumTime.concat(feedsFactory.sundaydaily.concat(feedsFactory.todayng.concat(feedsFactory.tribune.concat(feedsFactory.goalcom))))))))))))))))))));
     var list = [];
     var elemPos;
     setData = function(type,name,res,featured) { 
-    	if(name == "naija.ng")
+    	if(name == "goal.com")
       	console.log(res);
     	var	newsFeed  = ((res.data.rss) ? res.data.rss.channel.item : res.data.feed.entry) || [];
 
     	for(var k = 0; k < newsFeed.length; k++){
     		var dataSet = {};    		    		
-    		dataSet.title = (name !== 'Daily Trust') ? (newsFeed[k].title == "" || newsFeed[k].title == undefined) ? getDescription(newsFeed[k].description) : (newsFeed[k].title ): (name !== 'naija.ng') ? getTitle(newsFeed[k].link) : getTitle(newsFeed[k].id);
+    		dataSet.title = (name === 'goal.com') ? (newsFeed[k].title.__text)  : (name !== 'Daily Trust') ? (newsFeed[k].title == "" || newsFeed[k].title == undefined) ? getDescription(newsFeed[k].description) : (newsFeed[k].title ): (name !== 'naija.ng') ? getTitle(newsFeed[k].link) : getTitle(newsFeed[k].id);
 	    	dataSet.type = type;
-	    	dataSet.link = (name !== 'naija.ng') ? newsFeed[k].id : getTitle(newsFeed[k].id);
-	    	dataSet.pubDate = (name !== 'naija.ng') ? (newsFeed[k].pubDate) ? new Date(newsFeed[k].pubDate) : (new Date(res.data.rss.channel.pubDate)) : new Date(newsFeed[k].published);
+	    	dataSet.link = (name === 'goal.com') ? newsFeed[k].id : (name !== 'naija.ng') ? newsFeed[k].link : newsFeed[k].id;
+	    	dataSet.pubDate = (name === 'goal.com') ? new Date(newsFeed[k].updated) : (name !== 'naija.ng') ? (newsFeed[k].pubDate) ? new Date(newsFeed[k].pubDate) : (new Date(res.data.rss.channel.pubDate)) : new Date(newsFeed[k].published);
 	    	dataSet.name = name;
 	      //$scope.dataSet[type] = data;
 
