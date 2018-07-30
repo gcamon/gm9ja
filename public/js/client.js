@@ -675,19 +675,15 @@
 		    	}
 	    	} else {
 	    		//alert($scope.isUpdate)
+	    		console.log($scope.pageType,"========",dataSet.type)
 	    		if($scope.pageType == dataSet.type){
 		    		elemPos = $scope.headLines.map(function(x){return x.title}).indexOf(dataSet.title);
 		    		if(elemPos === -1) {
-		    			dataSet.isNow = true;	    			
+		    			dataSet.isNow = true;	
+		    			console.log(dataSet)    			
 		    			$scope.headLines.unshift(dataSet);		    			
 		    		} 
-	    		} /*else {
-	    			elemPos = $scope.featured.map(function(x){return x.title}).indexOf(dataSet.title);
-		    		if(elemPos === -1) {
-		    			dataSet.isNow = true;	    			
-		    			$scope.featured.unshift(dataSet);		    			
-		    		} 
-	    		}*/
+	    		} 
 	    	}
     	}
     }
@@ -771,13 +767,15 @@
     }
 
     $scope.refresh = function() {  
-    	$scope.isUpdate = false;  	
-    	list.splice(0);
-    	loadFeeds();
+    	$scope.isUpdate = false; 
+    	window.location.href="/" 	
+    	//list.splice(0);
+    	//loadFeeds();
     }
 
     $interval(function(){
     	$scope.isUpdate = true;
+    	//loadFeeds();
     },600000) //600000
 	
 	}])
