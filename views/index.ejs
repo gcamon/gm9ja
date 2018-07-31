@@ -25,7 +25,7 @@
   <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/apple-touch-icon-72x72.png">
   <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/apple-touch-icon-114x114.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-  
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122985010-1"></script>
   <script>
@@ -896,7 +896,7 @@
   class="logo__img" alt="">
                 </a>
                 <p class="copyright">
-                  © 2018 WOBI
+                  © 2018 GM9ja
                 </p>
                 <div class="socials socials--large socials--rounded mb-24">
                   <a href="#" class="social social-facebook" aria-label="facebook"><i class="ui-facebook"></i></a>
@@ -912,70 +912,23 @@
               <aside class="widget widget_nav_menu">
                 <h4 class="widget-title">Useful Links</h4>
                 <ul>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="contact.html">News</a></li>
-                  <li><a href="categories.html">Advertise</a></li>
-                  <li><a href="shortcodes.html">Support</a></li>
-                  <li><a href="shortcodes.html">Features</a></li>
-                  <li><a href="shortcodes.html">Contact</a></li>
+                  <li><a href="/latest">Latest News</a></li>
+                  <li><a href="/politics">Politics</a></li>
+                  <li><a href="/business">Business</a></li>
+                  <li><a href="/sports">Sports News</a></li>
+                  <li><a href="/lifestyle">Lifestyle</a></li>
+                  <li><a href="/entertainment">Entertainment</a></li>
+                  <li><a href="/technology">Technology</a></li>
+                  <li><a href="/world">World</a></li>
                 </ul>
               </aside>
             </div>  
 
             <div class="col-lg-4 col-md-6">
               <aside class="widget widget-popular-posts">
-                <h4 class="widget-title">Popular Posts</h4>
+                <h4 class="widget-title">News Sources</h4>
                 <ul class="post-list-small">
-                  <li class="post-list-small__item">
-                    <article class="post-list-small__entry clearfix">
-                      <div class="post-list-small__img-holder">
-                        <div class="thumb-container thumb-100">
-                          <a href="single-post.html">
-                            <img data-src="/assets/img/content/post_small/post_small_1.jpg" src="/assets/img/empty.png" alt="" class="post-list-small__img--rounded lazyload">
-                          </a>
-                        </div>
-                      </div>
-                      <div class="post-list-small__body">
-                        <h3 class="post-list-small__entry-title">
-                          <a href="single-post.html">Follow These Smartphone Habits of Successful Entrepreneurs</a>
-                        </h3>
-                        <ul class="entry__meta">
-                          <li class="entry__meta-author">
-                            <span>by</span>
-                            <a href="#">junniepat</a>
-                          </li>
-                          <li class="entry__meta-date">
-                            Jan 21, 2018
-                          </li>
-                        </ul>
-                      </div>                  
-                    </article>
-                  </li>
-                  <li class="post-list-small__item">
-                    <article class="post-list-small__entry clearfix">
-                      <div class="post-list-small__img-holder">
-                        <div class="thumb-container thumb-100">
-                          <a href="single-post.html">
-                            <img data-src="/assets/img/content/post_small/post_small_2.jpg" src="/assets/img/empty.png" alt="" class="post-list-small__img--rounded lazyload">
-                          </a>
-                        </div>
-                      </div>
-                      <div class="post-list-small__body">
-                        <h3 class="post-list-small__entry-title">
-                          <a href="single-post.html">Lose These 12 Bad Habits If You're Serious About Becoming a Millionaire</a>
-                        </h3>
-                        <ul class="entry__meta">
-                          <li class="entry__meta-author">
-                            <span>by</span>
-                            <a href="#">junniepat</a>
-                          </li>
-                          <li class="entry__meta-date">
-                            Jan 21, 2018
-                          </li>
-                        </ul>
-                      </div>                  
-                    </article>
-                  </li>
+                  <li ng-repeat="n in sources">{{n}}</li>                  
                 </ul>
               </aside>              
             </div>

@@ -640,6 +640,8 @@
    	$scope.featured = [];
    	var visitednews = localManager.getValue('visited') || [];
    	$scope.pageType = (category[category.length-1] == 'latest') ? "latest news" :category[category.length-1];
+   	var filterName = {}
+   	$scope.sources = [];
 
    	if(window.location.pathname == "/"){
     	$scope.pageType = "latest news"
@@ -674,8 +676,6 @@
 		    		$scope.featured.push(dataSet); //news for the side bar that is featured or top stories
 		    	}
 	    	} else {
-	    		//alert($scope.isUpdate)
-	    		console.log($scope.pageType,"========",dataSet.type)
 	    		if($scope.pageType == dataSet.type){
 		    		elemPos = $scope.headLines.map(function(x){return x.title}).indexOf(dataSet.title);
 		    		if(elemPos === -1) {
@@ -694,6 +694,14 @@
    	function loadFeeds() {
    		$scope.loading = true;
 	    $scope.feeds.forEach(function(item){
+
+	    	if(filterName.hasOwnProperty(item.name)){
+	    		filterName[item.name] += 1;
+	    	} else {
+	    		filterName[item.name] = 1;
+	    		$scope.sources.push(item.name)
+	    	}
+
 	    	if(item.type == category[category.length-1]) {
 		    	if(item.protocol == 'http') {
 		    		DataSource.getHttp(item.url,item.type,item.name,setData);
