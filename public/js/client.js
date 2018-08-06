@@ -650,7 +650,7 @@
     $scope.feeds = feedsFactory.nigerianVoice.concat(feedsFactory.sahara.concat(feedsFactory.dailyTrust.concat(feedsFactory.vanguard.concat(feedsFactory.naij.concat(feedsFactory.guardian.concat(feedsFactory.cnn.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times.concat(feedsFactory.bbc.concat(feedsFactory.news24.concat(feedsFactory.allafrica.concat(feedsFactory.punchng.concat(feedsFactory.thesun.concat(feedsFactory.dailypost.concat(feedsFactory.independent.concat(feedsFactory.premiumTime.concat(feedsFactory.sundaydaily.concat(feedsFactory.todayng.concat(feedsFactory.tribune.concat(feedsFactory.goalcom.concat(feedsFactory.thisday.concat(feedsFactory.thenation))))))))))))))))))))));
     var list = [];
     var elemPos;
-    setData = function(type,name,res,featured) { 
+    var setData = function(type,name,res,featured) { 
     	if(name == "goal.com")
       	console.log(res);
     	var	newsFeed  = ((res.data.rss) ? res.data.rss.channel.item : res.data.feed.entry) || [];
