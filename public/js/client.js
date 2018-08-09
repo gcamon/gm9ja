@@ -723,7 +723,11 @@
 	    		if(item.protocol == 'http') {
 		    		DataSource.getHttp(item.url,item.type,item.name,setData);
 		    	} else {
-		    		DataSource.getHttps(item.url,item.type,item.name,setData);
+		    		if(item.name == "daily independent") {
+		    			DataSource.outRequets(item.url,item.type,item.name,setData)
+		    		} else 	{
+		    			DataSource.getHttps(item.url,item.type,item.name,setData);
+		    		}
 		    	}
 	    	}
 
