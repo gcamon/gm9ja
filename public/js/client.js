@@ -32,7 +32,7 @@
 	      }
 	    },
 
-	     getHttps: function(url,type,name,callback,featured){
+	    getHttps: function(url,type,name,callback,featured){
 	      resource = url2 + '?url=' + url + "&protocol=https";	    	
 	      $http.get(
 	          resource,
@@ -557,7 +557,7 @@
 				name: "daily independent",
 				url: "https://independent.ng/feed/",
 				type: "latest news",
-				protocol: "http"
+				protocol: "https"
 			}
 		]
 
@@ -712,7 +712,12 @@
 	    		if(item.protocol == 'http') {
 		    		DataSource.getHttp(item.url,item.type,item.name,setData);
 		    	} else {
-		    		DataSource.getHttps(item.url,item.type,item.name,setData);
+		    		if(item.name == "daily independent") {
+		    			console.log("daily independent")
+		    			DataSource.outRequets(item.url,item.type,item.name,setData)
+		    		} else 	{
+		    			DataSource.getHttps(item.url,item.type,item.name,setData);
+		    		}
 		    	}
 	    	} else if( item.type == "latest news" && category[category.length-1] == 'latest') {
 	    		if(item.protocol == 'http') {

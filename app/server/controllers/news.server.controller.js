@@ -12,38 +12,6 @@ exports.read = function(req,res){
 	res.render('index');
 }
 
-/*exports.sports = function(req,res){
-	res.render('sports');
-}
-
-exports.politics = function(req,res){
-	res.render('politics');
-}
-
-
-exports.business = function(req,res){
-	res.render('business');
-}
-
-exports.lifestyle = function(req,res){
-	res.render('lifestyle');
-}
-
-exports.entertainment = function(req,res){
-	res.render('entertainment');
-}
-
-exports.technology = function(req,res){
-	res.render('technology');
-}
-
-exports.world = function(req,res){
-	res.render('world');
-}
-
-exports.fashion = function(req,res){
-	res.render('fashion');
-}*/
 
 
 exports.feeds = function(req,resp){
@@ -64,7 +32,7 @@ exports.feeds = function(req,resp){
 	  path: feedPath || ""
 	};
 
-	console.log("=============",options)
+	
 
 	if(req.query.protocol == "https") {
 
@@ -97,25 +65,4 @@ exports.feeds = function(req,resp){
 		  console.log('ERROR: ' + e.message);
 		});
 	}
-
-	/*var req = http.get(options, function(res) {
-	  console.log('STATUS: ' + res.statusCode);
-	  console.log('HEADERS: ' + JSON.stringify(res.headers));
-
-	  // Buffer the body entirely for processing as a whole.
-	  var bodyChunks = [];
-	  res.on('data', function(chunk) {
-	    // You can process streamed parts here...
-	    bodyChunks.push(chunk);
-	  }).on('end', function() {
-	    var body = Buffer.concat(bodyChunks);
-	    //console.log('BODY: ' + body);
-	    resp.send(body)
-	    // ...and/or process the entire body here.
-	  })
-	});
-
-	req.on('error', function(e) {
-	  console.log('ERROR: ' + e.message);
-	});*/
 }
