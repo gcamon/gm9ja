@@ -607,7 +607,7 @@
             
             <article class="entry card post-list widget widget_categories p-3">
               <ul>
-                <li ng-repeat="j in headLines | orderBy: '-pubDate' | filter: news" ng-if="j.title"><a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}"><b>{{j.title}}</b> &nbsp;&nbsp;&nbsp;<small style="color: #ccc">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small></a> &nbsp;&nbsp;<small style="color: lightBlue" class="" ng-if="item.isNow">new</small></li>
+                <li ng-repeat="j in headLines | orderBy: '-pubDate' | filter: news" ng-if="j.title"><a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}"><b>{{j.title}}</b> &nbsp;&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small></a> &nbsp;&nbsp;<small style="color: lightBlue" class="" ng-if="item.isNow">new</small></li>
               </ul>
 
             </article>
@@ -791,7 +791,7 @@
             <h4 class="widget-title">Top Stories</h4>
             <input type="text" name="" placeholder="Filter by headline, news source, category or date" class="form-control" ng-model="feature">
             <ul>
-              <li ng-repeat="n in featured | orderBy: '-pubDate' | filter : feature"><a href="{{n.link}}" target="_blank" ng-class="{'visited-link': n.isVisited}" ng-click="visited($event,n)">{{n.title}}&nbsp;&nbsp;<small style="color: #ccc">{{n.name}}</small>&nbsp;<small am-time-ago="n.pubDate" style="color: #ccc"></small></a></li>
+              <li ng-repeat="n in featured | orderBy: '-pubDate' | filter : feature"><a href="{{n.link}}" target="_blank" ng-class="{'visited-link': n.isVisited}" ng-click="visited($event,n)">{{n.title}}&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{n.name}}</small>&nbsp;<small am-time-ago="n.pubDate" style="color: #ccc"></small></a></li>
               <!--<li><a href="categories.html">Lifestyle <span class="categories-count">7</span></a></li>
               <li><a href="categories.html">Business <span class="categories-count">5</span></a></li>
               <li><a href="categories.html">Fashion <span class="categories-count">8</span></a></li>

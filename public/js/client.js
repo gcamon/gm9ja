@@ -280,25 +280,25 @@
 				protocol: "https"
 			},
 			{
-				name: "The Guardian",
+				name: "guardian",
 				url: "http://guardian.ng/category/business/feed/",
 				type: "business",
 				protocol: "http"
 			},
 			{
-				name: "The Guardian",
+				name: "guardian",
 				url: "http://guardian.ng/category/politic/feed/",
 				type: "politics",
 				protocol: "http"
 			},
 			{
-				name: "The Guardian",
+				name: "guardian",
 				url: "https://www.theguardian.com/uk/sport/rss",
 				type: "sports",
 				protocol: "http"
 			},
 			{
-				name: "The Guardian",
+				name: "guardian",
 				url: "https://www.theguardian.com/world/rss",
 				type: "world",
 				protocol: "http"
@@ -624,7 +624,41 @@
 			}
 		]
 
+		feeds.leadership = [
+			{
+				name: "leadership",
+				url: "https://leadership.ng/feed/",
+				type: "latest news",
+				protocol: "https"
+			}
+		]
+
+		feeds.dailytimes = [
+			{
+				name: "daily times",
+				url: "https://dailytimes.ng/feed/",
+				type: "latest news",
+				protocol: "https"
+			}
+		]
+
+		feeds.businessday = [
+			{
+				name: "business day",
+				url: "https://www.businessdayonline.com/feed/",
+				type: "latest news",
+				protocol: "https"
+			},
+			{
+				name: "business day",
+				url: "https://www.businessdayonline.com/feed/",
+				type: "business",
+				protocol: "https"
+			}
+		]
+
 		
+
 		return feeds;
 
 	}])
@@ -647,7 +681,7 @@
     	$scope.pageType = "latest news"
     }
 
-    $scope.feeds = feedsFactory.nigerianVoice.concat(feedsFactory.sahara.concat(feedsFactory.dailyTrust.concat(feedsFactory.vanguard.concat(feedsFactory.naij.concat(feedsFactory.guardian.concat(feedsFactory.cnn.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times.concat(feedsFactory.bbc.concat(feedsFactory.news24.concat(feedsFactory.allafrica.concat(feedsFactory.punchng.concat(feedsFactory.thesun.concat(feedsFactory.dailypost.concat(feedsFactory.independent.concat(feedsFactory.premiumTime.concat(feedsFactory.sundaydaily.concat(feedsFactory.todayng.concat(feedsFactory.tribune.concat(feedsFactory.goalcom.concat(feedsFactory.thisday.concat(feedsFactory.thenation))))))))))))))))))))));
+    $scope.feeds = feedsFactory.nigerianVoice.concat(feedsFactory.sahara.concat(feedsFactory.dailyTrust.concat(feedsFactory.vanguard.concat(feedsFactory.naij.concat(feedsFactory.guardian.concat(feedsFactory.cnn.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times.concat(feedsFactory.bbc.concat(feedsFactory.news24.concat(feedsFactory.allafrica.concat(feedsFactory.punchng.concat(feedsFactory.thesun.concat(feedsFactory.dailypost.concat(feedsFactory.independent.concat(feedsFactory.premiumTime.concat(feedsFactory.sundaydaily.concat(feedsFactory.todayng.concat(feedsFactory.tribune.concat(feedsFactory.goalcom.concat(feedsFactory.thisday.concat(feedsFactory.thenation.concat(feedsFactory.leadership.concat(feedsFactory.dailytimes.concat(feedsFactory.businessday)))))))))))))))))))))))));
     var list = [];
     var elemPos;
     var setData = function(type,name,res,featured) { 
