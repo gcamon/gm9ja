@@ -492,9 +492,9 @@
 		feeds.punchng = [
 			{
 				name: "punchng",
-				url: "http://punchng.com/feed/",
+				url: "https://punchng.com/feed/",
 				type: "latest news",
-				protocol: "http"
+				protocol: "https"
 			}
 		
 		]
@@ -584,9 +584,9 @@
 		feeds.tribune = [
 			{
 				name: "tribune",
-				url: "http://www.tribuneonlineng.com/feed/",
+				url: "https://www.tribuneonlineng.com/feed/",
 				type: "latest news",
-				protocol: "http"
+				protocol: "https"
 			}
 		]
 
@@ -746,22 +746,24 @@
 	    		if(item.protocol == 'http') {
 		    		DataSource.getHttp(item.url,item.type,item.name,setData);
 		    	} else {
-		    		if(item.name == "daily independent") {
+		    		DataSource.getHttps(item.url,item.type,item.name,setData);
+		    		/*if(item.name == "daily independent") {
 		    			console.log("daily independent")
 		    			DataSource.outRequets(item.url,item.type,item.name,setData)
 		    		} else 	{
 		    			DataSource.getHttps(item.url,item.type,item.name,setData);
-		    		}
+		    		}*/
 		    	}
 	    	} else if( item.type == "latest news" && category[category.length-1] == 'latest') {
 	    		if(item.protocol == 'http') {
 		    		DataSource.getHttp(item.url,item.type,item.name,setData);
 		    	} else {
-		    		if(item.name == "daily independent") {
+		    		DataSource.getHttps(item.url,item.type,item.name,setData);
+		    		/*if(item.name == "daily independent") {
 		    			DataSource.outRequets(item.url,item.type,item.name,setData)
 		    		} else 	{
 		    			DataSource.getHttps(item.url,item.type,item.name,setData);
-		    		}
+		    		}*/
 		    	}
 	    	}
 
