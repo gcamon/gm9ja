@@ -157,8 +157,8 @@
           
           <!-- Socials -->
           <div class="col-lg-6" style="text-align: right;padding-top: 10px;">
-            <a href="#" class="visited-link"><i class="fa fa-envelope"></i> &nbsp;mail@goodmorning9ja.com</a>&nbsp;&nbsp;&nbsp;
-            <a href="#" class="visited-link"><i class="fa fa-phone"></i> &nbsp;+234 809 6461 927</a>
+            <!--<a href="#" class="visited-link"><i class="fa fa-envelope"></i> &nbsp;mail@goodmorning9ja.com</a>&nbsp;&nbsp;&nbsp;-->
+            <a href="#" class="visited-link"> For Advert <i class="fa fa-phone"></i> &nbsp;+234 809 6461 927</a>
             <!--<div class="socials nav__socials socials--nobase socials--white justify-content-end"> 
               <a class="social social-facebook" href="#" target="_blank" aria-label="facebook">
                 <i class="ui-facebook"></i>
@@ -599,7 +599,7 @@
             <div class="title-wrap title-wrap--line" style="padding-top: 15px;margin-bottom: 5px;position: relative;">
               <h5 class="section-title">{{pageType}}</h5>
               <!--<a href="#" class="all-posts-url">View All</a>-->
-              <input type="text" name="" style="width: 50%;float: right;padding: 10px 10px" ng-model="news" placeholder="Filter by headline, news source, category or date">
+              <input type="text" name="" style="width: 50%;float: right;padding: 10px 10px" ng-model="news" placeholder="Filter by headline keywords, news source or date (mm/dd)">
 
               <a href="" ng-click="refresh()" class="btn btn-primary btn-sm" style="position: absolute;bottom: 0;left: 0;color:#fff"><i class="fa fa-spinner fa-pulse fa-1x fa-fw" ng-if="loading"></i> <i class="fa fa-refresh"></i></a>
             </div>
@@ -789,7 +789,7 @@
 
           <aside class="widget widget_categories" ng-cloak>
             <h4 class="widget-title">Top Stories</h4>
-            <input type="text" name="" placeholder="Filter by headline, news source, category or date" class="form-control" ng-model="feature">
+            <input type="text" name="" placeholder="Filter by headline keywords, news source or date (mm/dd)" class="form-control" ng-model="feature">
             <ul>
               <li ng-repeat="n in featured | orderBy: '-pubDate' | filter : feature"><a href="{{n.link}}" target="_blank" ng-class="{'visited-link': n.isVisited}" ng-click="visited($event,n)">{{n.title}}&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{n.name}}</small>&nbsp;<small am-time-ago="n.pubDate" style="color: #ccc"></small></a></li>
               <!--<li><a href="categories.html">Lifestyle <span class="categories-count">7</span></a></li>
