@@ -69,7 +69,7 @@ module.exports = function(app) {
 	app.route("/world")
 	.get(news.read)
 
-	app.route("/fashion")
+	app.route("/football")
 	.get(news.read)
 
 	//var compras = require('../controllers/compras.server.controller');

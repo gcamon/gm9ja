@@ -657,7 +657,186 @@
 			}
 		]
 
-		
+		feeds.nation = [
+			{
+				name: "thenation",
+				url: "https://www.thenation.com/feed/?post_type=article&subject=business",
+				type: "business",
+				protocol: "http"
+			},
+			{
+				name: "thenation",
+				url: "https://www.thenation.com/feed/?post_type=article&subject=world",
+				type: "world",
+				protocol: "http"
+			}
+		]
+
+		feeds.bellanaija = [
+			{
+				name: "bella naija",
+				url: "https://www.bellanaija.com/feed/",
+				type: "latest news",
+				protocol: "https"
+			},
+			{
+				name: "bella naija",
+				url: "https://www.bellanaija.com/feed/",
+				type: "entertainment",
+				protocol: "https"
+			}
+		]
+
+		feeds.football = [
+			{
+				name: "goal.com",
+				url: "http://www.goal.com/en/feeds/news?fmt=rss&ICID=HP",
+				type: "football",
+				protocol: "http"
+			},
+			{
+				name: "101 great goals",
+				url: "https://www.101greatgoals.com/feed/",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "fourfourtwo.com",
+				url: "https://www.fourfourtwo.com/rss.xml",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "90mins.in",
+				url: "https://www.90min.com/posts.rss",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "teamtalk.com",
+				url: "https://www.teamtalk.com/feed",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "soccernews.com",
+				url: "http://www.soccernews.com/feed/",
+				type: "football",
+				protocol: "http"
+			},
+			{
+				name: "footballfancast.com",
+				url: "https://www.footballfancast.com/feed",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "caughtoffside.com",
+				url: "https://www.caughtoffside.com/feed/",
+				type: "football",
+				protocol: "https"
+			},
+			
+			{
+				name: "sportslens.com",
+				url: "https://sportslens.com/feed/",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "foottheball.com",
+				url: "https://www.foottheball.com/feed",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "worldsoccer.com",
+				url: "https://www.worldsoccer.com/feed",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "TheFootballDaily.com",
+				url: "https://www.youtube.com/feeds/videos.xml?user=TheFootballDaily",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "marca.com",
+				url: "http://e00-marca.uecdn.es/rss/en/index.xml",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "football365.com",
+				url: "https://www.football365.com/feed",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "manutd.com",
+				url: "https://www.manutd.com/Feeds/NewsSecondRSSFeed",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "calciomercato.com",
+				url: "https://www.calciomercato.com/en/feed",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "squawka.com",
+				url: "http://www.squawka.com/news/feed",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "thisisanfield.com",
+				url: "https://www.thisisanfield.com/feed/",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "football-italia.net",
+				url: "https://www.football-italia.net/rss.xml",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "arseblog.com",
+				url: "https://arseblog.com/feed",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "whoateallthepies.tv",
+				url: "http://www.whoateallthepies.tv/feed",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "talkchelsea.net",
+				url: "https://www.talkchelsea.net/feed/",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "shoot.co.uk",
+				url: "https://www.shoot.co.uk/feed/",
+				type: "football",
+				protocol: "https"
+			},
+			{
+				name: "footballaction.co.uk",
+				url: "http://footballaction.co.uk/feed",
+				type: "football",
+				protocol: "http"
+			}
+
+
+			
+		]
 
 		return feeds;
 
@@ -673,7 +852,7 @@
    	$scope.headLines = [];
    	$scope.featured = [];
    	var visitednews = localManager.getValue('visited') || [];
-   	$scope.pageType = (category[category.length-1] == 'latest') ? "latest news" :category[category.length-1];
+   	$scope.pageType = (category[category.length-1] == 'latest') ? "latest news" : category[category.length-1];
    	var filterName = {}
    	$scope.sources = [];
 
@@ -681,20 +860,33 @@
     	$scope.pageType = "latest news"
     }
 
-    $scope.feeds = feedsFactory.nigerianVoice.concat(feedsFactory.sahara.concat(feedsFactory.dailyTrust.concat(feedsFactory.vanguard.concat(feedsFactory.naij.concat(feedsFactory.guardian.concat(feedsFactory.cnn.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times.concat(feedsFactory.bbc.concat(feedsFactory.news24.concat(feedsFactory.allafrica.concat(feedsFactory.punchng.concat(feedsFactory.thesun.concat(feedsFactory.dailypost.concat(feedsFactory.independent.concat(feedsFactory.premiumTime.concat(feedsFactory.sundaydaily.concat(feedsFactory.todayng.concat(feedsFactory.tribune.concat(feedsFactory.goalcom.concat(feedsFactory.thisday.concat(feedsFactory.thenation.concat(feedsFactory.leadership.concat(feedsFactory.dailytimes.concat(feedsFactory.businessday)))))))))))))))))))))))));
+    if(	$scope.pageType == 'football') {
+    	$scope.feeds = feedsFactory.football || [];
+    } else {
+	    $scope.feeds = feedsFactory.nigerianVoice.concat(feedsFactory.sahara.concat(feedsFactory.dailyTrust
+	    .concat(feedsFactory.vanguard.concat(feedsFactory.naij.concat(feedsFactory.guardian
+	    .concat(feedsFactory.cnn.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times.concat(feedsFactory.bbc
+	    .concat(feedsFactory.news24.concat(feedsFactory.allafrica.concat(feedsFactory.punchng
+	    .concat(feedsFactory.thesun.concat(feedsFactory.dailypost.concat(feedsFactory.bellanaija.concat(feedsFactory.premiumTime
+	    .concat(feedsFactory.sundaydaily.concat(feedsFactory.todayng.concat(feedsFactory.tribune.concat(feedsFactory.goalcom
+	    .concat(feedsFactory.thisday.concat(feedsFactory.thenation.concat(feedsFactory.leadership.concat(feedsFactory.dailytimes
+	    .concat(feedsFactory.businessday)))))))))))))))))))))))))
+    }
+
     var list = [];
     var elemPos;
-    var setData = function(type,name,res,featured) { 
-    	if(name == "goal.com")
-      	console.log(res);
-    	var	newsFeed  = ((res.data.rss) ? res.data.rss.channel.item : res.data.feed.entry) || [];
 
+    var setData = function(type,name,res,featured) { 
+    	
+    	var	newsFeed  = ((res.data.rss) ? res.data.rss.channel.item : res.data.feed.entry) || [];
+    	if(name == 'marca.com')
+    		console.log(res)
     	for(var k = 0; k < newsFeed.length; k++){
     		var dataSet = {};    		    		
-    		dataSet.title = (name === 'goal.com') ? (newsFeed[k].title.__text)  : (name !== 'Daily Trust') ? (newsFeed[k].title == "" || newsFeed[k].title == undefined) ? getDescription(newsFeed[k].description) : (newsFeed[k].title ): (name !== 'naija.ng') ? getTitle(newsFeed[k].link) : getTitle(newsFeed[k].id);
+    		dataSet.title = (name === 'goal.com' && $scope.pageType !== 'football') ? (newsFeed[k].title.__text) : (name !== 'Daily Trust') ? (newsFeed[k].title == "" || newsFeed[k].title == undefined) ? getDescription(newsFeed[k].description) : (typeof newsFeed[k].title == 'object' ) ? newsFeed[k].title[0] : (newsFeed[k].title) : (name !== 'naija.ng') ? getTitle(newsFeed[k].link) : getTitle(newsFeed[k].id);
 	    	dataSet.type = type;
-	    	dataSet.link = (name === 'goal.com') ? newsFeed[k].id : (name !== 'naija.ng') ? newsFeed[k].link : newsFeed[k].id;
-	    	dataSet.pubDate = (name === 'goal.com') ? new Date(newsFeed[k].updated) : (name !== 'naija.ng') ? (newsFeed[k].pubDate) ? new Date(newsFeed[k].pubDate) : (new Date(res.data.rss.channel.pubDate)) : new Date(newsFeed[k].published);
+	    	dataSet.link = (name === 'goal.com' && $scope.pageType !== 'football') ? newsFeed[k].id : (name !== 'naija.ng') ? newsFeed[k].link : newsFeed[k].id;
+	    	dataSet.pubDate = (name === 'goal.com' && $scope.pageType !== 'football') ? new Date(newsFeed[k].updated) : (name !== 'naija.ng') ? (newsFeed[k].pubDate) ? new Date(newsFeed[k].pubDate) : (new Date(res.data.rss.channel.pubDate)) : new Date(newsFeed[k].published);
 	    	dataSet.name = name;
 	      //$scope.dataSet[type] = data;
 
@@ -768,7 +960,8 @@
 	    	}
 
 	    	if(item.type !== category[category.length-1]) {
-	    		if(item.type == 'politics' || item.type == 'business' || item.type == 'sports' || item.type == 'world' || item.type == 'entertainment'){
+	    		if(item.type == 'technology' || item.type == 'business' || item.type == 'world' || item.type == 'politic'){
+	    			
 	    			if(item.protocol == 'http') {
 		    			DataSource.getHttp(item.url,item.type,item.name,setData,'isFeatured');
 			    	} else {
