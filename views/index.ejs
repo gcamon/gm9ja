@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=0, shrink-to-fit=yes" />
   <meta name="description" content="">
 
   <!-- Google Fonts -->
@@ -45,6 +45,35 @@
   <style type="text/css">
     .visited-link {
       color: orange!important;
+    }
+
+    .filter-input {
+      width: 50%;
+      float: right;
+      padding: 10px 10px
+    }
+
+    .refresh {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color:#fff
+    }
+
+    @media screen and (max-width: 699px) {
+      .filter-input {
+        float: none;
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      .refresh {
+        display: none;
+      }
+
+      .trending-now__label {
+        display: none;
+      }
     }
   </style>
 
@@ -108,6 +137,10 @@
         </li>
         <li>
           <a href="/football" class="sidenav__menu-url">Football</a>
+        </li>
+
+         <li>
+           Contact us call +234 8096 461 927
         </li>
       </ul>
     </nav>
@@ -389,7 +422,7 @@
                 </a>
                 <div class="nav__search-box" id="nav__search-box">
                   <form class="nav__search-form">
-                    <input type="text" placeholder="Search an article" class="nav__search-input">
+                    <input type="text" placeholder="Search for headlines or news source" class="nav__search-input" ng-model="news">
                     <button type="submit" class="search-button btn btn-lg btn-color btn-button">
                       <i class="ui-search nav__search-icon"></i>
                     </button>
@@ -595,9 +628,9 @@
             <div class="title-wrap title-wrap--line" style="padding-top: 15px;margin-bottom: 5px;position: relative;">
               <h5 class="section-title">{{pageType}}</h5>
               <!--<a href="#" class="all-posts-url">View All</a>-->
-              <input type="text" name="" style="width: 50%;float: right;padding: 10px 10px" ng-model="news" placeholder="Filter by headline keywords, news source or date (mm/dd)">
+              <input type="text" name="" class="filter-input" ng-model="news" placeholder="Filter by headline keywords, news source or date (mm/dd)">
 
-              <a href="" ng-click="refresh()" class="btn btn-primary btn-sm" style="position: absolute;bottom: 0;left: 0;color:#fff"><i class="fa fa-spinner fa-pulse fa-1x fa-fw" ng-if="loading"></i> <i class="fa fa-refresh"></i></a>
+              <a href="" ng-click="refresh()" class="btn btn-primary btn-sm refresh"><i class="fa fa-spinner fa-pulse fa-1x fa-fw" ng-if="loading"></i> <i class="fa fa-refresh"></i></a>
             </div>
             
             
