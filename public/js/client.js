@@ -960,7 +960,7 @@
 	    	}
 
 	    	if(item.type !== category[category.length-1]) {
-	    		if(item.type == 'technology' || item.type == 'business' || item.type == 'world' || item.type == 'politic'){
+	    		if(item.type == 'technology' || item.type == 'business' || item.type == 'world' || item.type == 'politics'){
 	    			
 	    			if(item.protocol == 'http') {
 		    			DataSource.getHttp(item.url,item.type,item.name,setData,'isFeatured');
