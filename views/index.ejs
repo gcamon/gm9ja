@@ -57,7 +57,18 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      color:#fff
+      color:orange
+    }
+
+    .share-whatsapp {
+      position: absolute;
+      bottom: 0;
+      left: 60px;
+      color: #fff
+    }
+
+    .text-danger {
+      color: orange;
     }
 
     @media screen and (max-width: 699px) {
@@ -631,12 +642,13 @@
               <input type="text" name="" class="filter-input" ng-model="news" placeholder="Filter by headline keywords, news source or date (mm/dd)">
 
               <a href="" ng-click="refresh()" class="btn btn-primary btn-sm refresh"><i class="fa fa-spinner fa-pulse fa-1x fa-fw" ng-if="loading"></i> <i class="fa fa-refresh"></i></a>
+               <a href="{{getLink()}}" target="_blank" data-action="share/whatsapp/share" class="btn btn-simple btn-sm share-whatsapp"><i class="fa fa-share"></i> <i class="fa fa-heart" style="color: orange"></i> on whatsapp</a>
             </div>
             
             
             <article class="entry card post-list widget widget_categories p-3">
               <ul>
-                <li ng-repeat="j in headLines | orderBy: '-pubDate' | filter: news" ng-if="j.title"><a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}"><b>{{j.title}}</b> &nbsp;&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small></a> &nbsp;&nbsp;<small style="color: lightBlue" class="" ng-if="item.isNow">new</small></li>
+                <li ng-repeat="j in headLines | orderBy: '-pubDate' | filter: news" ng-if="j.title"><a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}"><b>{{j.title}}</b> &nbsp;&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)"  style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-class="{'text-danger': j.isLoved}" ng-click="unlove(j)" style="cursor: pointer;"></i> <small style="color: lightBlue" class="" ng-if="item.isNow">new</small></li>
               </ul>
 
             </article>

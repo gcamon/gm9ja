@@ -9,10 +9,14 @@ var url;
 
 
 exports.read = function(req,res){
-	res.render('index');
+	res.render('index',{share: []});
 }
 
-
+exports.readShared = function(req,res){
+ 	console.log(req.query)
+ 	res.end("shdjhgsdh")
+ 	//res.render('index',{share: []});
+}
 
 exports.feeds = function(req,resp){
 	var feedPath = "/";

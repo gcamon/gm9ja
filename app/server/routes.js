@@ -72,6 +72,10 @@ module.exports = function(app) {
 	app.route("/football")
 	.get(news.read)
 
+
+	app.route("/share")
+	.get(news.readShared)
+
 	//var compras = require('../controllers/compras.server.controller');
 	//var comprasPolicy = require('../policies/compras.server.policy');
 

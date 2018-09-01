@@ -990,6 +990,37 @@
     	localManager.setValue('visited',list);    	
     }
 
+    $scope.lovedOnes = [];
+
+    $scope.love = function(item){
+    	item.isLoved = true;    	
+    	item.id = Math.floor(Math.random() * 9999) + "" + Math.floor(Math.random() * 9999)
+    	$scope.lovedOnes.push(item);
+    	console.log($scope.lovedOnes)
+    }
+
+     $scope.unlove = function(item){
+    	item.isLoved = false;
+    	var elemPos = $scope.lovedOnes.map(function(x){return x.id}).indexOf(item.id);
+    	if($scope.lovedOnes[elemPos]){
+    		$scope.lovedOnes.splice(elemPos,1)
+    	}
+
+    	console.log($scope.lovedOnes)
+    }
+
+    $scope.getLink = function(){
+    	if($scope.lovedOnes.length > 0) {
+    		var str = "https://goodmorning9ja.com/share?";
+    		for(var i = 0; i < $scope.lovedOnes.length; i++){
+    			str += (i + 1) + "=" + createNewsLink($scope.lovedOnes[i].title) + "&&"
+    		}
+
+    		var tm = str.slice(0, -2)
+    		return tm;
+    	}
+    }
+
     function getTitle(title) {
     	var t = title.split('/')
     	var b = t[t.length-1].split(".");
@@ -1018,6 +1049,22 @@
     	//list.splice(0);
     	//loadFeeds();
     }
+
+    function createNewsLink(title){
+		var str = "";
+		if(title) {
+			var spt = title.split(" ");
+			for(var i = 0; i < spt.length; i++){
+				str += spt[i] + "-";
+			}
+		}
+
+		var tm = str.slice(0, -1)
+
+		console.log(tm)
+		return tm;
+	}
+
 
     $interval(function(){
     	$scope.isUpdate = true;
