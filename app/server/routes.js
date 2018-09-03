@@ -73,8 +73,12 @@ module.exports = function(app) {
 	.get(news.read)
 
 
-	app.route("/share")
+	app.route("/share/:type/:id/:article")
 	.get(news.readShared)
+
+	app.route("/share/save")
+	.get(news.getSavedShared)
+	.post(news.saveShared)
 
 	//var compras = require('../controllers/compras.server.controller');
 	//var comprasPolicy = require('../policies/compras.server.policy');

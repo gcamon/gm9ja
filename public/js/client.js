@@ -1,9 +1,18 @@
 (function() {
 
 	angular.module('myApp',["angularMoment"])
-	.factory('DataSource', ['$http',function($http){
+	.factory('DataSource', ['$http',"$rootScope",function($http,$rootScope){
 		var resource;
-		var url2 =  (window.location.pathname === '/') ? window.location.href + "feeds" : window.location.href + "/feeds";
+
+		
+		var link = window.location.href;
+		var path = link.split('/');
+
+		//combine path for fetching feeds from back end based on the page in view
+		var url2 = (window.location.pathname === '/') ? 
+		window.location.href + "feeds" : (path.length <= 4) ? window.location.href + "/feeds" :
+		 (path[0] + "//" + path[2] + "/" + path[4]) + "/feeds";
+
 	  return {
 	    getHttp: function(url,type,name,callback,featured){
 	    	resource = url2 + '?url=' + url + "&protocol=http";
@@ -841,21 +850,63 @@
 		return feeds;
 
 	}])
-	.controller("feedsCtlr",["$scope","DataSource","feedsFactory","$filter","localManager","$interval",
-		function($scope,DataSource,feedsFactory,$filter,localManager,$interval){	     
+	.service("shareService",["$resource"])
+	.controller("feedsCtlr",["$scope","DataSource","feedsFactory","$filter","localManager","$interval","$http",
+		function($scope,DataSource,feedsFactory,$filter,localManager,$interval,$http){	     
    	 
     var path = window.location.pathname;
     var category = path.split('/')
+
+    console.log(category)
+
 
 
 
    	$scope.headLines = [];
    	$scope.featured = [];
    	var visitednews = localManager.getValue('visited') || [];
-   	$scope.pageType = (category[category.length-1] == 'latest') ? "latest news" : category[category.length-1];
+   	$scope.pageType = (category[1] == 'latest') ? "latest news" : (category[1] == "share") ? category[2] : category[1];
    	var filterName = {}
    	$scope.sources = [];
+   	var thePage = (category[1] == "share") ? category[2] : category[1];
 
+   	if(category[1] == "share") {
+	   	/*$http({
+	       method  : 'GET',
+	        url     : "/share/save" + "?id=" + category[3],
+	        headers : {'Content-Type': 'application/json'} 
+	     })
+	    .success(function(data) {
+	       if(data) {
+	         $scope.sharedHealines = data.arr;
+	       }		        
+	    }); */
+
+	    var url =  "/share/save" + "?id=" + category[3];
+	    $http.get(
+	        	url,
+	         	{	
+	           	headers: {
+	            	"Content-Type": 'application/json',
+	         		}
+	        	}
+	      )
+	      .then(successCallback,errorCallback)
+	      
+
+	      function errorCallback(err) {
+	      	console.log(err)
+	      }
+
+	      function successCallback(data) {
+	      	var itemList = data.data.arr;
+	      	for(var i = 0; i < itemList.length; i++){
+	      		itemList[i].isLoved = false;
+	      	}
+	      	$scope.sharedHealines = itemList;
+	      }    
+    }		
+ 
    	if(window.location.pathname == "/"){
     	$scope.pageType = "latest news"
     }
@@ -928,7 +979,7 @@
 	    		$scope.sources.push(item.name)
 	    	}
 
-	    	if(item.type == category[category.length-1]) {
+	    	if(item.type == thePage) {
 		    	if(item.protocol == 'http') {
 		    		DataSource.getHttp(item.url,item.type,item.name,setData);
 		    	} else {
@@ -946,7 +997,7 @@
 		    			DataSource.getHttps(item.url,item.type,item.name,setData);
 		    		}*/
 		    	}
-	    	} else if( item.type == "latest news" && category[category.length-1] == 'latest') {
+	    	} else if( item.type == "latest news" && thePage == 'latest') {
 	    		if(item.protocol == 'http') {
 		    		DataSource.getHttp(item.url,item.type,item.name,setData);
 		    	} else {
@@ -959,7 +1010,7 @@
 		    	}
 	    	}
 
-	    	if(item.type !== category[category.length-1]) {
+	    	if(item.type !== thePage) {
 	    		if(item.type == 'technology' || item.type == 'business' || item.type == 'world' || item.type == 'politics'){
 	    			
 	    			if(item.protocol == 'http') {
@@ -981,43 +1032,76 @@
 
   	loadFeeds();
 
-    $scope.visited = function(e,item){
-    	if(item.isNow)
-    		item.isNow = false;
-    	var list = localManager.getValue('visited') || [];    	
-    	list.push(item.title);
-    	item.isVisited = true;
-    	localManager.setValue('visited',list);    	
+    $scope.visited = function(e,item,shared){
+    	if(item) {
+	    	if(item.isNow)
+	    		item.isNow = false;
+	    	var list = localManager.getValue('visited') || [];    	
+	    	list.push(item.title);
+	    	item.isVisited = true;
+	    	localManager.setValue('visited',list);  
+	    }  	
     }
 
-    $scope.lovedOnes = [];
+    var lovedOnes = [];
 
     $scope.love = function(item){
-    	item.isLoved = true;    	
+    	item.isLoved = true;
+    	$scope.isLoaded = true    	
     	item.id = Math.floor(Math.random() * 9999) + "" + Math.floor(Math.random() * 9999)
-    	$scope.lovedOnes.push(item);
-    	console.log($scope.lovedOnes)
+    	lovedOnes.push(item);
     }
 
      $scope.unlove = function(item){
     	item.isLoved = false;
-    	var elemPos = $scope.lovedOnes.map(function(x){return x.id}).indexOf(item.id);
-    	if($scope.lovedOnes[elemPos]){
-    		$scope.lovedOnes.splice(elemPos,1)
+    	var elemPos = lovedOnes.map(function(x){return x.id}).indexOf(item.id);
+    	if(lovedOnes[elemPos]){
+    		lovedOnes.splice(elemPos,1);
     	}
 
-    	console.log($scope.lovedOnes)
+    	console.log(lovedOnes);
     }
 
-    $scope.getLink = function(){
-    	if($scope.lovedOnes.length > 0) {
-    		var str = "https://goodmorning9ja.com/share?";
-    		for(var i = 0; i < $scope.lovedOnes.length; i++){
-    			str += (i + 1) + "=" + createNewsLink($scope.lovedOnes[i].title) + "&&"
+    $scope.saveLove = function() {
+    	/**/            
+
+    }
+
+    $scope.getLink = function(env,elem){
+    	
+    	if(lovedOnes.length > 0) {
+    		var id = genHash(10);
+    		var sendObj = {
+    			id: id,
+    			arr: lovedOnes,
+    			date: + new Date()
+    		}
+
+
+    		var str = "https://goodmorning9ja.com/share/" + thePage  + "/" + id + "/";
+    		for(var i = 0; i < lovedOnes.length; i++){
+    			str += "__" + (i + 1) + "__" + createNewsLink(lovedOnes[i].title) + "__"
     		}
 
     		var tm = str.slice(0, -2)
-    		return tm;
+    		var shareUrl = "https://web.whatsapp.com/send?text=" + tm;
+    		//window.location.href =  "https://web.whatsapp.com/send?text=" + tm;
+    		window.open(shareUrl,'_blank');
+
+    		$http({
+		       method  : 'POST',
+		        url     : "/share/save",
+		        data    : sendObj, //forms user object
+		        headers : {'Content-Type': 'application/json'} 
+		     })
+		    .success(function(data) {
+		       if(data) {
+		         console.log(data)
+		       }		        
+		    });     		
+    		
+    	} else {
+    		alert("Please love atleast one headline you want to share!")
     	}
     }
 
@@ -1042,6 +1126,16 @@
     	}
     
     }
+
+    function genHash(count) {
+	  var text = "";
+	  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567899966600555777222";
+
+	    for( var i=0; i < count; i++ )
+	        text += possible.charAt(Math.floor(Math.random() * possible.length));
+	    return text;
+	}
+
 
     $scope.refresh = function() {  
     	$scope.isUpdate = false; 

@@ -18,7 +18,7 @@ var MongoDBStore = require('connect-mongodb-session')(session);
 var configuration = function (app,model) {
   //config
   
-  var storeDB = process.env.MONGODB_ADDON_URI || "mongodb://127.0.0.1:27017/newsDB";
+  var storeDB = "mongodb://127.0.0.1:27017/newsDB";
   var store = new MongoDBStore(
     {
       uri: storeDB,
@@ -57,6 +57,7 @@ var configuration = function (app,model) {
 	app.use(function(req, res, next) {
 		console.log(req.url)
     res.setHeader("Access-Control-Allow-Origin", "*");
+    req.model = model;
     return next();
   });
 

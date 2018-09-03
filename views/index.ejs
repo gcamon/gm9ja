@@ -642,13 +642,24 @@
               <input type="text" name="" class="filter-input" ng-model="news" placeholder="Filter by headline keywords, news source or date (mm/dd)">
 
               <a href="" ng-click="refresh()" class="btn btn-primary btn-sm refresh"><i class="fa fa-spinner fa-pulse fa-1x fa-fw" ng-if="loading"></i> <i class="fa fa-refresh"></i></a>
-               <a href="{{getLink()}}" target="_blank" data-action="share/whatsapp/share" class="btn btn-simple btn-sm share-whatsapp"><i class="fa fa-share"></i> <i class="fa fa-heart" style="color: orange"></i> on whatsapp</a>
+               <a href="" ng-click="getLink()" target="_blank" data-action="share/whatsapp/share" class="btn btn-simple btn-sm share-whatsapp"><i class="fa fa-share"></i> <i class="fa fa-heart" style="color: orange"></i> on whatsapp</a>
             </div>
             
             
             <article class="entry card post-list widget widget_categories p-3">
+              
               <ul>
-                <li ng-repeat="j in headLines | orderBy: '-pubDate' | filter: news" ng-if="j.title"><a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}"><b>{{j.title}}</b> &nbsp;&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)"  style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-class="{'text-danger': j.isLoved}" ng-click="unlove(j)" style="cursor: pointer;"></i> <small style="color: lightBlue" class="" ng-if="item.isNow">new</small></li>
+                <li ng-if="sharedHealines.length > 0" style="padding-bottom: 0">
+                  <h6 style="color: orange">Shared headlines</h6>
+                  <p ng-repeat="j in sharedHealines">
+                    <a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}"><b>{{j.title}}</b> &nbsp;&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-click="unlove(j)" style="cursor: pointer;color:orange"></i> 
+                  </p>
+                  <hr>
+                </li>
+                <li style="padding-top: 0">
+                <h6 style="color: orange">Headlines</h6>
+                <p ng-repeat="j in headLines | orderBy: '-pubDate' | filter: news" ng-if="j.title"><a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}"><b>{{j.title}}</b> &nbsp;&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-click="unlove(j)" style="cursor: pointer;color:orange"></i> <small style="color: lightBlue" class="" ng-if="item.isNow">new</small></p>
+                </li>
               </ul>
 
             </article>
@@ -832,7 +843,7 @@
             <h4 class="widget-title">Top Stories</h4>
             <input type="text" name="" placeholder="Filter by headline keywords, news source or date (mm/dd)" class="form-control" ng-model="feature">
             <ul>
-              <li ng-repeat="n in featured | orderBy: '-pubDate' | filter : feature"><a href="{{n.link}}" target="_blank" ng-class="{'visited-link': n.isVisited}" ng-click="visited($event,n)">{{n.title}}&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{n.name}}</small>&nbsp;<small am-time-ago="n.pubDate" style="color: #ccc"></small></a></li>
+              <li ng-repeat="n in featured | orderBy: '-pubDate' | filter : feature"><a href="{{n.link}}" target="_blank" ng-class="{'visited-link': n.isVisited}" ng-click="visited($event,n)">{{n.title}}&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{n.name}}</small>&nbsp;<small am-time-ago="n.pubDate" style="color: #ccc"></small></a> &nbsp;&nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!n.isLoved" ng-click="love(n)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="n.isLoved" ng-click="unlove(n)" style="cursor: pointer;color:orange"></i> </li>
               <!--<li><a href="categories.html">Lifestyle <span class="categories-count">7</span></a></li>
               <li><a href="categories.html">Business <span class="categories-count">5</span></a></li>
               <li><a href="categories.html">Fashion <span class="categories-count">8</span></a></li>

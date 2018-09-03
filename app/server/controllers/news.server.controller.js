@@ -9,14 +9,42 @@ var url;
 
 
 exports.read = function(req,res){
-	res.render('index',{share: []});
+	res.render('index');
 }
 
+
 exports.readShared = function(req,res){
- 	console.log(req.query)
- 	res.end("shdjhgsdh")
- 	//res.render('index',{share: []});
+ 	console.log(req.params)
+ 	res.render('index');
 }
+
+exports.saveShared = function(req,res){
+	console.log(req.body)
+	var model = req.model;
+
+	var shared = new model.share(req.body);
+	shared.save(function(err,info){
+		console.log("shared headlines saved!");
+	})
+	res.json({});
+}
+
+
+exports.getSavedShared = function(req,res){
+	var model = req.model
+ 	model.share.findOne({id:req.query.id},function(err,data){
+ 		console.log(data)
+ 		if(err) throw err;
+ 		if(data) {
+ 			res.json(data);
+ 		} else {
+ 			res.end({message: "Oops! https://goodmorning9ja.com could not find the shared headlines you requested"})
+ 		}
+ 	})
+ 	//res.render('index',{shared: []});
+}
+
+
 
 exports.feeds = function(req,resp){
 	var feedPath = "/";

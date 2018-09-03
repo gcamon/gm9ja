@@ -29,7 +29,16 @@ module.exports = function() {
 		collections: "newsinfos"
 	});
 
+	var shareSchema = Schema({
+		id: String,
+		date: Number,
+		arr: Array
+	},{
+		collections: "shareinfos"
+	})
+
 	var models = {};
 	models.news = mongoose.model('newsinfos', newsSchema);
+	models.share = mongoose.model('shareinfos', shareSchema);
 	return models;
 }
