@@ -1078,7 +1078,7 @@
     		}
 
 
-    		var str = "https://goodmorning9ja.com/share/" + thePage  + "/" + id + "/";
+    		var str = "https://goodmorning9ja.com/share" + thePage  + "/" + id + "/";
     		for(var i = 0; i < lovedOnes.length; i++){
     			str += "__" + (i + 1) + "__" + createNewsLink(lovedOnes[i].title) + "__"
     		}
