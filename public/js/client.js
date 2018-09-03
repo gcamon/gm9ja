@@ -850,7 +850,6 @@
 		return feeds;
 
 	}])
-	.service("shareService",["$resource"])
 	.controller("feedsCtlr",["$scope","DataSource","feedsFactory","$filter","localManager","$interval","$http",
 		function($scope,DataSource,feedsFactory,$filter,localManager,$interval,$http){	     
    	 
@@ -865,7 +864,7 @@
    	$scope.headLines = [];
    	$scope.featured = [];
    	var visitednews = localManager.getValue('visited') || [];
-   	$scope.pageType = (category[1] == 'latest') ? "latest news" : (category[1] == "share") ? category[2] : category[1];
+   	$scope.pageType = (category[1] == 'latest') ? "latest news" : (category[1] == "share") ? ((category[2] == 'latest') ? "latest news" : category[2] ) : category[1];
    	var filterName = {}
    	$scope.sources = [];
    	var thePage = (category[1] == "share") ? category[2] : category[1];
@@ -1079,7 +1078,7 @@
 
 
     		var str = "https://goodmorning9ja.com/share/" + (($scope.pageType == "latest news") ? "latest" : $scope.pageType)  + "/" + id + "/";
-    		alert(str)
+
     		for(var i = 0; i < lovedOnes.length; i++){
     			str += "__" + (i + 1) + "__" + createNewsLink(lovedOnes[i].title) + "__"
     		}
