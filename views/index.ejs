@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-  <meta name="viewport" content="width=device-width, initial-scale=0.6, shrink-to-fit=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.7, shrink-to-fit=yes" />
   <meta name="description" content="">
 
   <!-- Google Fonts -->
@@ -71,6 +71,12 @@
       color: orange;
     }
 
+    .title-wrap {
+      padding-top: 15px;
+      margin-bottom: 5px;
+      position: relative;
+    }
+
     @media screen and (max-width: 699px) {
       .filter-input {
         float: none;
@@ -78,8 +84,9 @@
         margin: 10px 0;
       }
 
-      .refresh {
-        display: none;
+      .title-wrap {
+        /*display: none;*/
+         height: 135px
       }
 
       .trending-now__label {
@@ -636,7 +643,7 @@
 
           <!-- Worldwide News -->
           <section class="section">
-            <div class="title-wrap title-wrap--line" style="padding-top: 15px;margin-bottom: 5px;position: relative;">
+            <div class="title-wrap title-wrap--line" style="">
               <h5 class="section-title">{{pageType}}</h5>
               <!--<a href="#" class="all-posts-url">View All</a>-->
               <input type="text" name="" class="filter-input" ng-model="news" placeholder="Filter by headline keywords, news source or date (mm/dd)">
