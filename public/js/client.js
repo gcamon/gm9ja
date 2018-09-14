@@ -181,7 +181,7 @@
 		feeds.dailyTrust = [
 			{
 				name: "Daily Trust",
-				url: "https://www.dailytrust.com.ng/rss/feed.aspx?cat_id=1",
+				url: "https://www.dailytrust.com.ng/feed",//"https://www.dailytrust.com.ng/rss/feed.aspx?cat_id=1",
 				type: "latest news",
 				protocol: "https"
 			},
@@ -914,13 +914,7 @@
     	$scope.feeds = feedsFactory.football || [];
     } else {
 	    $scope.feeds = feedsFactory.nigerianVoice.concat(feedsFactory.sahara.concat(feedsFactory.dailyTrust
-	    .concat(feedsFactory.vanguard.concat(feedsFactory.naij.concat(feedsFactory.guardian
-	    .concat(feedsFactory.cnn.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times.concat(feedsFactory.bbc
-	    .concat(feedsFactory.news24.concat(feedsFactory.allafrica.concat(feedsFactory.punchng
-	    .concat(feedsFactory.thesun.concat(feedsFactory.dailypost.concat(feedsFactory.bellanaija.concat(feedsFactory.premiumTime
-	    .concat(feedsFactory.sundaydaily.concat(feedsFactory.todayng.concat(feedsFactory.tribune.concat(feedsFactory.goalcom
-	    .concat(feedsFactory.thisday.concat(feedsFactory.thenation.concat(feedsFactory.leadership.concat(feedsFactory.dailytimes
-	    .concat(feedsFactory.businessday)))))))))))))))))))))))))
+	    .concat(feedsFactory.vanguard.concat(feedsFactory.naij.concat(feedsFactory.guardian.concat(feedsFactory.cnn.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times.concat(feedsFactory.bbc.concat(feedsFactory.news24.concat(feedsFactory.allafrica.concat(feedsFactory.punchng.concat(feedsFactory.thesun.concat(feedsFactory.dailypost.concat(feedsFactory.sundaydaily.concat(feedsFactory.premiumTime.concat(feedsFactory.bellanaija.concat(feedsFactory.todayng.concat(feedsFactory.tribune.concat(feedsFactory.goalcom.concat(feedsFactory.thisday.concat(feedsFactory.thenation.concat(feedsFactory.leadership.concat(feedsFactory.dailytimes.concat(feedsFactory.businessday)))))))))))))))))))))))))
     }
 
     var list = [];
@@ -929,8 +923,8 @@
     var setData = function(type,name,res,featured) { 
     	
     	var	newsFeed  = ((res.data.rss) ? res.data.rss.channel.item : res.data.feed.entry) || [];
-    	if(name == 'marca.com')
-    		console.log(res)
+    	if(name == 'bella naija')
+    		console.log("==========================",res)
     	for(var k = 0; k < newsFeed.length; k++){
     		var dataSet = {};    		    		
     		dataSet.title = (name === 'goal.com' && $scope.pageType !== 'football') ? (newsFeed[k].title.__text) : (name !== 'Daily Trust') ? (newsFeed[k].title == "" || newsFeed[k].title == undefined) ? getDescription(newsFeed[k].description) : (typeof newsFeed[k].title == 'object' ) ? newsFeed[k].title[0] : (newsFeed[k].title) : (name !== 'naija.ng') ? getTitle(newsFeed[k].link) : getTitle(newsFeed[k].id);
