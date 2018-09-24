@@ -913,8 +913,20 @@
     if(	$scope.pageType == 'football') {
     	$scope.feeds = feedsFactory.football || [];
     } else {
-	    $scope.feeds = feedsFactory.nigerianVoice.concat(feedsFactory.sahara.concat(feedsFactory.dailyTrust
-	    .concat(feedsFactory.vanguard.concat(feedsFactory.naij.concat(feedsFactory.guardian.concat(feedsFactory.cnn.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times.concat(feedsFactory.bbc.concat(feedsFactory.news24.concat(feedsFactory.allafrica.concat(feedsFactory.punchng.concat(feedsFactory.thesun.concat(feedsFactory.dailypost.concat(feedsFactory.sundaydaily.concat(feedsFactory.premiumTime.concat(feedsFactory.bellanaija.concat(feedsFactory.todayng.concat(feedsFactory.tribune.concat(feedsFactory.goalcom.concat(feedsFactory.thisday.concat(feedsFactory.thenation.concat(feedsFactory.leadership.concat(feedsFactory.dailytimes.concat(feedsFactory.businessday)))))))))))))))))))))))))
+	    $scope.feeds = feedsFactory.nigerianVoice.concat(feedsFactory.sahara
+	    .concat(feedsFactory.dailyTrust
+	    .concat(feedsFactory.vanguard.concat(feedsFactory.naij
+	    	.concat(feedsFactory.guardian.concat(feedsFactory.cnn
+	    		.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times
+	    			.concat(feedsFactory.bbc.concat(feedsFactory.news24
+	    				.concat(feedsFactory.allafrica.concat(feedsFactory.punchng
+	    					.concat(feedsFactory.thesun.concat(feedsFactory.dailypost
+	    						.concat(feedsFactory.sundaydaily.concat(feedsFactory.premiumTime
+	    							.concat(feedsFactory.bellanaija.concat(feedsFactory.todayng
+	    								.concat(feedsFactory.tribune.concat(feedsFactory.goalcom
+	    									.concat(feedsFactory.thisday.concat(feedsFactory.thenation
+	    										.concat(feedsFactory.leadership.concat(feedsFactory.dailytimes
+	    											.concat(feedsFactory.businessday.concat(feedsFactory.independent))))))))))))))))))))))))))
     }
 
     var list = [];
@@ -1071,13 +1083,13 @@
     		}
 
 
-    		var str = "https://goodmorning9ja.com/share/" + (($scope.pageType == "latest news") ? "latest" : $scope.pageType)  + "/" + id + "/";
+    		var str = "https://goodmorning9ja.com/share/" + (($scope.pageType == "latest news") ? "latest" : $scope.pageType)  + "/" + id + "/gm";
 
     		for(var i = 0; i < lovedOnes.length; i++){
-    			str += "__" + (i + 1) + "__" + createNewsLink(lovedOnes[i].title) + "__"
+    			str += "%0A%0A"+ createNewsLink(lovedOnes[i].title) + ""
     		}
 
-    		var tm = str.slice(0, -2)
+    		var tm = str;//str.slice(0, -2)
     		var shareUrl = "https://web.whatsapp.com/send?text=" + tm;
     		//window.location.href =  "https://web.whatsapp.com/send?text=" + tm;
     		window.open(shareUrl,'_blank');
@@ -1133,7 +1145,7 @@
 
     $scope.refresh = function() {  
     	$scope.isUpdate = false; 
-    	window.location.href="/" 	
+    	window.location.href="/";	
     	//list.splice(0);
     	//loadFeeds();
     }
@@ -1143,7 +1155,7 @@
 		if(title) {
 			var spt = title.split(" ");
 			for(var i = 0; i < spt.length; i++){
-				str += spt[i] + "-";
+				str += spt[i] + " ";
 			}
 		}
 

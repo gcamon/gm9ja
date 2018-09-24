@@ -65,13 +65,13 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      color:orange
+      color:#fff;
     }
 
     .share-whatsapp {
       position: absolute;
       bottom: 0;
-      left: 60px;
+      left: 120px;
       color: #fff
     }
 
@@ -656,7 +656,7 @@
               <!--<a href="#" class="all-posts-url">View All</a>-->
               <input type="text" name="" class="filter-input" ng-model="news" placeholder="Filter by headline keywords, news source or date (mm/dd)">
 
-              <a href="" ng-click="refresh()" class="btn btn-primary btn-sm refresh"><i class="fa fa-spinner fa-pulse fa-1x fa-fw" ng-if="loading"></i> <i class="fa fa-refresh"></i></a>
+              <a href="" ng-click="refresh()" title="load new headlines" class="btn btn-primary btn-sm refresh"><i class="fa fa-refresh fa-pulse fa-1x fa-fw" style="font-size: 14px;color: orange"></i> Refresh</a>
                <a href="" ng-click="getLink()" target="_blank" data-action="share/whatsapp/share" class="btn btn-simple btn-sm share-whatsapp"><i class="fa fa-share"></i> <i class="fa fa-heart" style="color: orange"></i> on whatsapp</a>
             </div>
             
@@ -967,6 +967,7 @@
                 </p>
                 <div class="socials socials--large socials--rounded mb-24">
                   <a href="" class="social social-facebook" aria-label="facebook"><i class="ui-facebook"></i></a>
+                  <div>contact us call +234 8096 461 927</div>
                   <!-- https://web.facebook.com/Goodmorning9jacom-280876745828122 -->
                   <!--<a href="#" class="social social-twitter" aria-label="twitter"><i class="ui-twitter"></i></a>
                   <a href="#" class="social social-google-plus" aria-label="google+"><i class="ui-google"></i></a>

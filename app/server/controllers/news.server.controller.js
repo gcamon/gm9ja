@@ -64,12 +64,11 @@ exports.feeds = function(req,resp){
 	  path: feedPath || ""
 	};
 
-	
 
-	if(req.query.protocol == "https") {
+
+	if(req.query.protocol === "https") {
 		request(req.query.url, function (error, response, body) {
-		  console.log('error:', error); // Print the error if one occurred
-		  resp.send(body)
+		  resp.send(body);
 		});
 
 	} else {
@@ -91,7 +90,7 @@ exports.feeds = function(req,resp){
 		});
 
 		req.on('error', function(e) {
-		  console.log('ERROR: ' + e.message);
+		  //console.log('ERROR: ' + e.message);
 		});
 	}
 }
