@@ -1,6 +1,10 @@
 (function() {
 
-	angular.module('myApp',["angularMoment"])
+	angular.module('HashBangURLs', []).config(['$locationProvider', function($location) {
+  	$location.hashPrefix('!');
+	}]);
+
+	angular.module('myApp',["angularMoment","angularModalService",'HashBangURLs'])
 	.factory('DataSource', ['$http',"$rootScope",function($http,$rootScope){
 		var resource;
 
@@ -850,8 +854,65 @@
 		return feeds;
 
 	}])
-	.controller("feedsCtlr",["$scope","DataSource","feedsFactory","$filter","localManager","$interval","$http",
-		function($scope,DataSource,feedsFactory,$filter,localManager,$interval,$http){	     
+	.controller("adminFeedsCtlr",["$scope","feedsFactory","$http",function($scope,feedsFactory,$http){
+		 $scope.feeds = feedsFactory.nigerianVoice.concat(feedsFactory.sahara
+	    .concat(feedsFactory.dailyTrust
+	    .concat(feedsFactory.vanguard.concat(feedsFactory.naij
+	    	.concat(feedsFactory.guardian.concat(feedsFactory.cnn
+	    		.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times
+	    			.concat(feedsFactory.bbc.concat(feedsFactory.news24
+	    				.concat(feedsFactory.allafrica.concat(feedsFactory.punchng
+	    					.concat(feedsFactory.thesun.concat(feedsFactory.dailypost
+	    						.concat(feedsFactory.sundaydaily.concat(feedsFactory.premiumTime
+	    							.concat(feedsFactory.bellanaija.concat(feedsFactory.todayng
+	    								.concat(feedsFactory.tribune.concat(feedsFactory.goalcom
+	    									.concat(feedsFactory.thisday.concat(feedsFactory.thenation
+	    										.concat(feedsFactory.leadership.concat(feedsFactory.dailytimes
+	    											.concat(feedsFactory.businessday.concat(feedsFactory.independent))))))))))))))))))))))))));
+
+		$scope.addAll = function() {
+			$http({
+	      method  : 'POST',
+	      url     : "/admin/manage-source",
+	      data    : $scope.feeds,
+	      headers : {'Content-Type': 'application/json'} 
+	      })
+	   .then(successCallback,errorCallback)
+	      
+
+	    function errorCallback(err) {
+      	console.log(err)
+      }
+
+      function successCallback(res) {
+      	alert(res.data.message)
+      }    
+
+		}
+
+		$scope.addFootball = function() {
+			$scope.football = feedsFactory.football;
+			$http({
+	      method  : 'POST',
+	      url     : "/admin/manage-source",
+	      data    : $scope.football,
+	      headers : {'Content-Type': 'application/json'} 
+	      })
+	   .then(successCallback,errorCallback)
+	      
+
+	    function errorCallback(err) {
+      	console.log(err)
+      }
+
+      function successCallback(res) {
+      	alert(res.data.message)
+      }    
+		}
+
+	}])
+	.controller("feedsCtlr",["$scope","DataSource","feedsFactory","$filter","localManager","$interval","$http","$rootScope","ModalService",
+		function($scope,DataSource,feedsFactory,$filter,localManager,$interval,$http,$rootScope,ModalService){	     
    	 
     var path = window.location.pathname;
     var category = path.split('/')
@@ -1048,7 +1109,9 @@
 	    }  	
     }
 
-    var lovedOnes = [];
+    $rootScope.lovedOnes = [];
+
+    var lovedOnes = $rootScope.lovedOnes;
 
     $scope.love = function(item){
     	item.isLoved = true;
@@ -1074,6 +1137,7 @@
 
     $scope.getLink = function(env,elem){
     	
+    	
     	if(lovedOnes.length > 0) {
     		var id = genHash(10);
     		var sendObj = {
@@ -1092,7 +1156,7 @@
     		var tm = str;//str.slice(0, -2)
     		var shareUrl = "https://web.whatsapp.com/send?text=" + tm;
     		//window.location.href =  "https://web.whatsapp.com/send?text=" + tm;
-    		window.open(shareUrl,'_blank');
+    		window.open(shareUrl,'_blank'); 		
 
     		$http({
 		       method  : 'POST',
@@ -1102,12 +1166,12 @@
 		     })
 		    .success(function(data) {
 		       if(data) {
-		         console.log(data)
+		         console.log(data);
 		       }		        
-		    });     		
+		    });   		
     		
     	} else {
-    		alert("Please love atleast one headline you want to share!")
+    		alert("Please love atleast one headline you want to share!");
     	}
     }
 
@@ -1145,7 +1209,7 @@
 
     $scope.refresh = function() {  
     	$scope.isUpdate = false; 
-    	window.location.href="/";	
+    	window.location.href="/" 	
     	//list.splice(0);
     	//loadFeeds();
     }
@@ -1171,6 +1235,112 @@
     	//loadFeeds();
     },600000) //600000
 	
+	}])
+	.controller("shareController",["$scope","$rootScope","$sce",function($scope,$rootScope,$sce){
+
+		console.log($rootScope.lovedOnes);
+
+		var lovedOnes = $rootScope.lovedOnes;
+
+		if(lovedOnes.length == 0) {
+    		var id = genHash(10);
+    		var sendObj = {
+    			id: id,
+    			arr: lovedOnes,
+    			date: + new Date()
+    		}
+
+
+    		var str = "https://goodmorning9ja.com/share/" + (($scope.pageType == "latest news") ? "latest" : $scope.pageType)  + "/" + id + "/gm";
+
+    		for(var i = 0; i < lovedOnes.length; i++){
+    			str += "%0A%0A"+ createNewsLink(lovedOnes[i].title) + ""
+    		}
+
+    		var tm = str;//str.slice(0, -2)
+    		var shareUrl = "https://web.whatsapp.com/send?text=" + tm;
+    		//window.location.href =  "https://web.whatsapp.com/send?text=" + tm;
+    		//window.open(shareUrl,'_blank');
+
+    		var shareTag = document.createElement('a');
+    		shareTag.href = shareUrl;
+    		shareTag.target = "_blank";
+    		shareTag.setAttribute('data-action','share/whatsapp/share');    		
+    		shareTag.innerHTML += "Share";
+    		
+
+    		var btnArea = angular.element(document.getElementById('shareplace'));
+    		console.log(btnArea);
+    		console.log(shareTag);
+
+    		btnArea[0].appendChild(shareTag);
+
+    		var link = "" + shareTag;
+
+    		var saveSlection = function() {
+    		alert("selection will be saved amen!");
+    		/*$http({
+		       method  : 'POST',
+		        url     : "/share/save",
+		        data    : sendObj, //forms user object
+		        headers : {'Content-Type': 'application/json'} 
+		     })
+		    .success(function(data) {
+		       if(data) {
+		         console.log(data);
+		       }		        
+		    });*/
+		   	shareTag.addEventListener("click",saveSlection,false);
+    		}
+
+    		$scope.trustAsHtml = function() {
+			  return $sce.trustAsHtml(link);
+			};
+    		/*$http({
+		       method  : 'POST',
+		        url     : "/share/save",
+		        data    : sendObj, //forms user object
+		        headers : {'Content-Type': 'application/json'} 
+		     })
+		    .success(function(data) {
+		       if(data) {
+		         console.log(data);
+		       }		        
+		    });*/    		
+    		
+    	} else {
+    		alert("Please love atleast one headline you want to share!");
+    	}
+
+
+    	
+
+
+    function genHash(count) {
+	  var text = "";
+	  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567899966600555777222";
+
+	    for( var i=0; i < count; i++ )
+	        text += possible.charAt(Math.floor(Math.random() * possible.length));
+	    return text;
+	}
+
+
+	function createNewsLink(title){
+		var str = "";
+		if(title) {
+			var spt = title.split(" ");
+			for(var i = 0; i < spt.length; i++){
+				str += spt[i] + " ";
+			}
+		}
+
+		var tm = str.slice(0, -1)
+
+		console.log(tm)
+		return tm;
+	}
+
 	}])
 
 

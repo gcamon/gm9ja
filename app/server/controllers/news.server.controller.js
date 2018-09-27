@@ -3,18 +3,57 @@
 var request = require('request');
 
 var http = require("http");
+var X2JS = require("x2js");
 
 var uuid = require("uuid");
 var url;
+var feedPath;
 
 
 exports.read = function(req,res){
+	var model = req.model;
 	res.render('index');
+	
+	/*model.news.find({type: "latest news"},function(err,data){
+		if(err) throw err;
+		//console.log(data);
+		req.feeds = [];
+		var count = 0;
+		
+		for(var j = 0; j < data.length; j++) {
+			count++;
+
+			if(data[j].protocol === "https" || data[j].protocol === "http") {
+				request(data[j].url, function (error, response, body) {
+				  //resp.send(body);			 
+				  var tojs = new X2JS();              
+          var json = tojs.xml2js(body);
+         	console.log(json);
+			    req.feeds.push(json);
+			    sendResponse(req.feeds,data);
+				});
+
+			 //feeds.push(body);
+			
+
+				
+
+			} 
+		
+		}
+	
+	});*/
+
+	var sendResponse = function(feeds,data){
+		if(feeds.length == data.length)
+		res.render('index',{feed:feeds});
+		console.log(req.feeds.length, "=================")
+	}
+	
 }
 
 
 exports.readShared = function(req,res){
- 	console.log(req.params)
  	res.render('index');
 }
 
@@ -94,3 +133,5 @@ exports.feeds = function(req,resp){
 		});
 	}
 }
+
+

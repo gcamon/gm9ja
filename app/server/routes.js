@@ -3,6 +3,7 @@
 module.exports = function(app) {
 
 	var news = require("./controllers/news.server.controller");
+	var admin = require("./controllers/admin.server.controller");
 	//var signup = require("../controllers/signup.server.controller");
 	//var login = require("../controllers/login.server.controller");
 
@@ -39,6 +40,21 @@ module.exports = function(app) {
 
 	app.route("/football/feeds")
 	.get(news.feeds);
+
+
+
+
+
+	//admin manage news 
+
+	app.route("/gcamon29")
+	.get(admin.read)
+
+	app.route("/admin/manage-source")
+	.get(admin.readsources)
+	.put(admin.updatesource)
+	.post(admin.addsources)
+	.delete(admin.deletesource)
 
 
 	//direct
