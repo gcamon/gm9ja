@@ -1,6 +1,7 @@
 "use strict";
 
 var request = require('request');
+var path = require("path");
 
 var http = require("http");
 //var X2JS = require("x2js");
@@ -8,6 +9,11 @@ var http = require("http");
 var uuid = require("uuid");
 var url;
 var feedPath;
+
+
+exports.seofeeds = function(req,res){
+	res.sendFile(path.join(__dirname + "/snapshots/latest.html"));
+}
 
 
 exports.read = function(req,res){

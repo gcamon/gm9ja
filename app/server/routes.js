@@ -41,6 +41,11 @@ module.exports = function(app) {
 	app.route("/football/feeds")
 	.get(news.feeds);
 
+	//route for SEO
+
+	app.route("/snapshots/:page")
+	.get(news.seofeeds)
+
 
 
 
