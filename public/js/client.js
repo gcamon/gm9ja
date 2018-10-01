@@ -849,6 +849,15 @@
 
 
 			
+		];	
+
+		feeds.theNigerianLawyer = [
+			{
+				name: "the nigeria lawyer",
+				url: "https://thenigerialawyer.com/feed/",
+				type: "latest news",
+				protocol: "https"
+			}
 		]
 
 		return feeds;
@@ -856,7 +865,7 @@
 	}])
 	.controller("adminFeedsCtlr",["$scope","feedsFactory","$http",function($scope,feedsFactory,$http){
 		 $scope.feeds = feedsFactory.nigerianVoice.concat(feedsFactory.sahara
-	    .concat(feedsFactory.dailyTrust
+	    .concat(feedsFactory.theNigerianLawyer
 	    .concat(feedsFactory.vanguard.concat(feedsFactory.naij
 	    	.concat(feedsFactory.guardian.concat(feedsFactory.cnn
 	    		.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times
@@ -975,7 +984,7 @@
     	$scope.feeds = feedsFactory.football || [];
     } else {
 	    $scope.feeds = feedsFactory.nigerianVoice.concat(feedsFactory.sahara
-	    .concat(feedsFactory.dailyTrust
+	    .concat(feedsFactory.theNigerianLawyer
 	    .concat(feedsFactory.vanguard.concat(feedsFactory.naij
 	    	.concat(feedsFactory.guardian.concat(feedsFactory.cnn
 	    		.concat(feedsFactory.aljazeera.concat(feedsFactory.ny_times

@@ -655,7 +655,7 @@
             <div class="title-wrap title-wrap--line" style="">
               <h5 class="section-title">{{pageType}}</h5>
               <!--<a href="#" class="all-posts-url">View All</a>-->
-              <input type="text" name="" class="filter-input" ng-model="news" placeholder="Filter by headline keywords, news source or date (mm/dd)">
+              <input type="text" name="" class="filter-input" ng-model="news" placeholder="Search by headline keywords, news source or date (mm/dd)">
 
               <a href="" ng-click="refresh()" title="load new headlines" class="btn btn-primary btn-sm refresh"><i class="fa fa-refresh" style="font-size: 14px;color: orange"></i> Refresh</a>
                <a href="" ng-click="getLink()" class="btn btn-simple btn-sm share-whatsapp"><i class="fa fa-share"></i> <i class="fa fa-heart" style="color: orange"></i> whatsapp web</a>
@@ -667,7 +667,7 @@
               <ul>
                 <li ng-if="sharedHealines.length > 0" style="padding-bottom: 0">
                   <h6 style="color: orange">Shared headlines</h6>
-                  <p ng-repeat="j in sharedHealines">
+                  <p ng-repeat="j in sharedHealines | filter : news">
                     <a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}"><b>{{j.title}}</b> &nbsp;&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-click="unlove(j)" style="cursor: pointer;color:orange"></i> 
                   </p>
                   <hr>
@@ -858,7 +858,7 @@
 
           <aside class="widget widget_categories" ng-cloak>
             <h4 class="widget-title">Top Stories</h4>
-            <input type="text" name="" placeholder="Filter by headline keywords, news source or date (mm/dd)" class="form-control" ng-model="feature">
+            <input type="text" name="" placeholder="Search by headline keywords, news source or date (mm/dd)" class="form-control" ng-model="feature">
             <ul>
               <li ng-repeat="n in featured | orderBy: '-pubDate' | filter : feature"><a href="{{n.link}}" target="_blank" ng-class="{'visited-link': n.isVisited}" ng-click="visited($event,n)">{{n.title}}&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{n.name}}</small>&nbsp;<small am-time-ago="n.pubDate" style="color: #ccc"></small></a> &nbsp;&nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!n.isLoved" ng-click="love(n)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="n.isLoved" ng-click="unlove(n)" style="cursor: pointer;color:orange"></i> </li>
               <!--<li><a href="categories.html">Lifestyle <span class="categories-count">7</span></a></li>
