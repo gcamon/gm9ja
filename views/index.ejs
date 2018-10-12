@@ -42,6 +42,9 @@
     });
   </script>
 
+
+  
+
   <!-- Lazyload (must be placed in head in order to work) -->
   <script src="/assets/js/lazysizes.min.js"></script>
 
@@ -464,6 +467,10 @@
 
       </div>
     </header> <!-- end navigation -->
+
+    <div class="container">
+      
+    </div>
    
 
     <!-- Trending Now -->
@@ -671,6 +678,9 @@
                     <a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}"><b>{{j.title}}</b> &nbsp;&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-click="unlove(j)" style="cursor: pointer;color:orange"></i> 
                   </p>
                   <hr>
+                </li>
+                <li style="padding-bottom: 0">
+                 <img src="/assets/img/face-of-rank.jpg"  style="width: 38%;height: auto;float: right;">
                 </li>
                 <li style="padding-top: 0">
                 <h6 style="color: orange">Headlines</h6>

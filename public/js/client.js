@@ -1005,8 +1005,7 @@
     var setData = function(type,name,res,featured) { 
     	
     	var	newsFeed  = ((res.data.rss) ? res.data.rss.channel.item : res.data.feed.entry) || [];
-    	if(name == 'bella naija')
-    		console.log("==========================",res)
+    	
     	for(var k = 0; k < newsFeed.length; k++){
     		var dataSet = {};    		    		
     		dataSet.title = (name === 'goal.com' && $scope.pageType !== 'football') ? (newsFeed[k].title.__text) : (name !== 'Daily Trust') ? (newsFeed[k].title == "" || newsFeed[k].title == undefined) ? getDescription(newsFeed[k].description) : (typeof newsFeed[k].title == 'object' ) ? newsFeed[k].title[0] : (newsFeed[k].title) : (name !== 'naija.ng') ? getTitle(newsFeed[k].link) : getTitle(newsFeed[k].id);
