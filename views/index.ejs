@@ -89,6 +89,10 @@
       position: relative;
     }
 
+    .switch-for-mobile {
+      display: none;
+    }
+
     @media screen and (max-width: 699px) {
       .filter-input {
         float: none;
@@ -103,6 +107,15 @@
 
       .trending-now__label {
         display: none;
+      }
+
+      .switch-for-mobile {
+        padding: 10px 0;
+        display: block;
+      }
+
+      .sidebar {
+        margin-top: -80px!important; 
       }
     }
   </style>
@@ -666,10 +679,14 @@
 
               <a href="" ng-click="refresh()" title="load new headlines" class="btn btn-primary btn-sm refresh"><i class="fa fa-refresh" style="font-size: 14px;color: orange"></i> Refresh</a>
                <a href="" ng-click="getLink()" class="btn btn-simple btn-sm share-whatsapp"><i class="fa fa-share"></i> <i class="fa fa-heart" style="color: orange"></i> whatsapp web</a>
+              
+            </div>
+            <div class="switch-for-mobile" style="text-align: right;">
+               <a href="" ng-click="switch()">{{(!isNormal) ? 'See also Latest Headlines' : "See also Top Stories"}}</a>
             </div>
             
             
-            <article class="entry card post-list widget widget_categories p-3">
+            <article class="entry card post-list widget widget_categories p-3" ng-if="isNormal">
               
               <ul>
                 <li ng-if="sharedHealines.length > 0" style="padding-bottom: 0">

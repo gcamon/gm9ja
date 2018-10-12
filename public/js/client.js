@@ -926,9 +926,17 @@
     var path = window.location.pathname;
     var category = path.split('/')
 
-    console.log(category)
+    console.log(category);
+    
+    $scope.isNormal = true;
 
-
+    $scope.switch = function(){
+    	if($scope.isNormal) {
+    		$scope.isNormal = false;
+    	} else {
+    		$scope.isNormal = true;
+    	}
+    }
 
 
    	$scope.headLines = [];
