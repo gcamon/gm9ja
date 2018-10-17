@@ -12,8 +12,13 @@ var feedPath;
 
 
 exports.seofeeds = function(req,res){
-	var page = req.params.page + ".html";
-	res.sendFile(path.join(__dirname + "/snapshots/" + page));
+	var page = (req.params.page) ? (req.params.page + ".html") : null;
+	if(page) {
+		res.sendFile(path.join(__dirname + "/snapshots/" + page));
+	} else {
+		res.sendFile(path.join(__dirname + "/snapshots/" + "latest.html"));
+	}
+
 }
 
 
