@@ -1,10 +1,10 @@
 (function() {
 
-	angular.module('HashBangURLs', []).config(['$locationProvider', function($location) {
+	/*angular.module('HashBangURLs', []).config(['$locationProvider', function($location) {
   	$location.hashPrefix('!');
-	}]);
+	}]);*/
 
-	angular.module('myApp',["angularMoment","angularModalService",'HashBangURLs'])
+	angular.module('myApp',["angularMoment","angularModalService"])
 	.factory('DataSource', ['$http',"$rootScope",function($http,$rootScope){
 		var resource;
 
