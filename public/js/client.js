@@ -864,7 +864,7 @@
 
 	}])
 	.controller("adminFeedsCtlr",["$scope","feedsFactory","$http",function($scope,feedsFactory,$http){
-		 $scope.feeds = feedsFactory.nigerianVoice.concat(feedsFactory.sahara
+		 $scope.feeds = [];/*feedsFactory.nigerianVoice.concat(feedsFactory.sahara
 	    .concat(feedsFactory.theNigerianLawyer
 	    .concat(feedsFactory.vanguard.concat(feedsFactory.naij
 	    	.concat(feedsFactory.guardian.concat(feedsFactory.cnn
@@ -877,7 +877,7 @@
 	    								.concat(feedsFactory.tribune.concat(feedsFactory.goalcom
 	    									.concat(feedsFactory.thisday.concat(feedsFactory.thenation
 	    										.concat(feedsFactory.leadership.concat(feedsFactory.dailytimes
-	    											.concat(feedsFactory.businessday.concat(feedsFactory.independent))))))))))))))))))))))))));
+	    											.concat(feedsFactory.businessday.concat(feedsFactory.independent))))))))))))))))))))))))));*/
 
 		$scope.addAll = function() {
 			$http({
