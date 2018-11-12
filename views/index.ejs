@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-  <meta name="viewport" content="width=device-width, initial-scale=0.7, shrink-to-fit=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=yes" />
   <meta name="description" content="">
   <meta name="fragment" content="!" />
  
@@ -106,6 +106,10 @@
 
     .switch-for-mobile {
       display: none;
+    }
+
+    .post-list-small__entry-title{
+      padding: 5px 0;
     }
 
     @media screen and (max-width: 699px) {
@@ -387,23 +391,23 @@
                         </div>
                       </div>
                     </li>
-                  </ul>--> <!-- end megamenu -->
+                  </ul>-->
                 </li>
 
-                <li class="nav__dropdow" ng-class="{'active': pageType == 'business'}">
+                <!--<li class="nav__dropdow" ng-class="{'active': pageType == 'business'}">
                   <a href="/business">Business</a>
-                  <!--<ul class="nav__dropdown-menu">
+                  <ul class="nav__dropdown-menu">
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="search-results.html">Search Results</a></li>
                     <li><a href="categories.html">Categories</a></li>
                     <li><a href="404.html">404</a></li>
-                  </ul>-->
-                </li>                
+                  </ul>
+                </li>-->            
 
-                <li class="nav__dropdow" ng-class="{'active': pageType == 'sports'}">
+                <!--<li class="nav__dropdow" ng-class="{'active': pageType == 'sports'}">
                   <a href="/sports">Sports</a>
-                  <!--<ul class="nav__dropdown-menu">
+                  <ul class="nav__dropdown-menu">
                   
                     <li class="nav__dropdown">
                       <a href="#">Single Post</a>
@@ -411,11 +415,11 @@
                         <li><a href="single-post.html">Style 1</a></li>
                         </ul>
                     </li>
-                  </ul>-->
-                </li>
-                <li class="nav__dropdow" ng-class="{'active': pageType == 'lifestyle'}">
+                  </ul>
+                </li>-->
+                <!--<li class="nav__dropdow" ng-class="{'active': pageType == 'lifestyle'}">
                   <a href="/lifestyle">Lifestyle</a>
-                  <!--<ul class="nav__dropdown-menu">
+                  <ul class="nav__dropdown-menu">
                   
                     <li class="nav__dropdown">
                       <a href="#">Single Post</a>
@@ -423,9 +427,9 @@
                         <li><a href="single-post.html">Style 1</a></li>
                         </ul>
                     </li>
-                  </ul>-->
-                </li>
-                <li class="nav__dropdow" ng-class="{'active': pageType == 'entertainment'}">
+                  </ul>
+                </li>-->
+                <!--<li class="nav__dropdow" ng-class="{'active': pageType == 'entertainment'}">
                   <a href="/entertainment">Entertainment</a>
                   <!--<ul class="nav__dropdown-menu">
                   
@@ -435,10 +439,10 @@
                         <li><a href="single-post.html">Style 1</a></li>
                         </ul>
                     </li>
-                  </ul>-->
-                </li>
+                  </ul>
+                </li>-->
 
-                <li class="nav__dropdow" ng-class="{'active': pageType == 'technology'}">
+                <!--<li class="nav__dropdow" ng-class="{'active': pageType == 'technology'}">
                   <a href="/technology">Technology</a>
                   <!--<ul class="nav__dropdown-menu">
                   
@@ -448,8 +452,8 @@
                         <li><a href="single-post.html">Style 1</a></li>
                         </ul>
                     </li>
-                  </ul>-->
-                </li>
+                  </ul>
+                </li>-->
               
                 <li class="nav__dropdow" ng-class="{'active': pageType == 'world'}">
                   <a href="/world">World</a>
@@ -458,6 +462,18 @@
                 <li class="nav__dropdow" ng-class="{'active': pageType == 'football'}">
                   <a href="/football">Football</a>                  
                 </li>
+                <!--<li class="nav__dropdow" ng-class="{'active': pageType == 'football'}">
+                  <a href="/atiku">Atikulate</a>                  
+                </li>
+                 <li class="nav__dropdow" ng-class="{'active': pageType == 'football'}">
+                  <a href="/buhari">Buhari</a>                  
+                </li>
+                <li class="nav__dropdow" ng-class="{'active': pageType == 'football'}">
+                  <a href="/pdp">PDP</a>                  
+                </li>
+                <li class="nav__dropdow" ng-class="{'active': pageType == 'football'}">
+                  <a href="/apc">APC</a>                  
+                </li>-->
                <!-- <li class="nav__dropdow">
                   <a href="">Career</a>
                   <!--<ul class="nav__dropdown-menu">
@@ -695,18 +711,22 @@
 
           <!-- Worldwide News -->
           <section class="section">
-            <div class="title-wrap title-wrap--line" style="">
+            <!--<div class="title-wrap title-wrap--line" style="">
               <h5 class="section-title">{{pageType}}</h5>
-              <!--<a href="#" class="all-posts-url">View All</a>-->
+              
               <input type="text" name="" class="filter-input" ng-model="news" placeholder="Search by headline keywords, news source or date (mm/dd)">
 
               <a href="" ng-click="refresh()" title="load new headlines" class="btn btn-primary btn-sm refresh"><i class="fa fa-refresh" style="font-size: 14px;color: orange"></i> Refresh</a>
                <a href="" ng-click="getLink()" class="btn btn-simple btn-sm share-whatsapp"><i class="fa fa-share"></i> <i class="fa fa-heart" style="color: orange"></i> whatsapp web</a>
               
+            </div>-->
+            <div>
+               <a href="" ng-click="refresh()" title="load new headlines" class="refres"><i class="fa fa-refresh" style="font-size: 14px;color: orange"></i> Refresh</a>
+               <a href="" ng-click="getLink()" class=""><!--<i class="fa fa-share"></i>--> <i class="fa fa-heart" style="color: orange;margin-left: 15px"></i> whatsapp web</a>
+               <a href="" class="switch-for-mobile" style="margin-left: 10px" ng-click="switch()">{{(!isNormal) ? 'See also Latest Headlines' : "See also Top Stories"}}</a>
+               <input type="text" name="" class="filter" ng-model="news" placeholder="Search by headline keywords, news source or date (mm/dd)">
             </div>
-            <div class="switch-for-mobile" style="text-align: right;">
-               <a href="" ng-click="switch()">{{(!isNormal) ? 'See also Latest Headlines' : "See also Top Stories"}}</a>
-            </div>
+
             
             
             <article class="entry card post-list widget widget_categories p-3" ng-if="isNormal">
@@ -722,9 +742,12 @@
                 <li style="padding-bottom: 0">
                  <img src="/assets/img/face-of-rank.jpg"  style="width: 38%;height: auto;float: right;">
                 </li>
-                <li style="padding-top: 0">
-                <h6 style="color: orange">Headlines</h6>
-                <p ng-repeat="j in headLines | orderBy: '-pubDate' | filter: news" ng-if="j.title"><a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}"><b>{{j.title}}</b> &nbsp;&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-click="unlove(j)" style="cursor: pointer;color:orange"></i> <small style="color: lightBlue" class="" ng-if="item.isNow">new</small></p>
+                <li style="padding-top: 0" class="post-list-small__item">
+                <h6 style="color: orange">Headlines ( {{headLines.length}} )</h6>
+                <article class="post-list-small__entry">
+                <h3 ng-repeat="j in headLines | orderBy: '-pubDate' | filter: news" ng-if="j.title" class="post-list-small__entry-title"><a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}">{{j.title}} &nbsp;&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-click="unlove(j)" style="cursor: pointer;color:orange"></i> 
+                <small style="color: lightBlue" class="" ng-if="item.isNow">new</small></h3>
+                </article>
                 </li>
               </ul>
 
@@ -910,7 +933,13 @@
             <h4 class="widget-title">Top Stories</h4>
             <input type="text" name="" placeholder="Search by headline keywords, news source or date (mm/dd)" class="form-control" ng-model="feature">
             <ul>
-              <li ng-repeat="n in featured | orderBy: '-pubDate' | filter : feature"><a href="{{n.link}}" target="_blank" ng-class="{'visited-link': n.isVisited}" ng-click="visited($event,n)">{{n.title}}&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{n.name}}</small>&nbsp;<small am-time-ago="n.pubDate" style="color: #ccc"></small></a> &nbsp;&nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!n.isLoved" ng-click="love(n)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="n.isLoved" ng-click="unlove(n)" style="cursor: pointer;color:orange"></i> </li>
+              <li class="post-list-small__item">
+                  <article class="post-list-small__entry">
+                    <h3 ng-repeat="n in featured | orderBy: '-pubDate' | filter : feature" class="post-list-small__entry-title">
+                         <a href="{{n.link}}" target="_blank" ng-class="{'visited-link': n.isVisited}" ng-click="visited($event,n)">{{n.title}}&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{n.name}}</small>&nbsp;<small am-time-ago="n.pubDate" style="color: #ccc"></small></a> &nbsp;&nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!n.isLoved" ng-click="love(n)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="n.isLoved" ng-click="unlove(n)" style="cursor: pointer;color:orange"></i>
+                    </h3>
+                  </article>
+              </li>
               <!--<li><a href="categories.html">Lifestyle <span class="categories-count">7</span></a></li>
               <li><a href="categories.html">Business <span class="categories-count">5</span></a></li>
               <li><a href="categories.html">Fashion <span class="categories-count">8</span></a></li>
