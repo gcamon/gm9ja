@@ -860,6 +860,16 @@
 			}
 		]
 
+		feeds.viewAfrica24 = [
+			{
+				
+				name: "view africa 24",
+				url: "https://viewafrica24.com/feed/",
+				type: "latest news",
+				protocol: "https"
+			}
+		]
+
 		return feeds;
 
 	}])
@@ -1004,7 +1014,7 @@
 	    								.concat(feedsFactory.tribune.concat(feedsFactory.goalcom
 	    									.concat(feedsFactory.thisday.concat(feedsFactory.thenation
 	    										.concat(feedsFactory.leadership.concat(feedsFactory.dailytimes
-	    											.concat(feedsFactory.businessday.concat(feedsFactory.independent))))))))))))))))))))))))))
+	    											.concat(feedsFactory.businessday.concat(feedsFactory.independent.concat(feedsFactory.viewAfrica24)))))))))))))))))))))))))))
     }
 
     var list = [];

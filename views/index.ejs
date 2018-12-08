@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-  <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=yes" />
   <meta name="description" content="">
   <meta name="fragment" content="!" />
  
@@ -734,19 +734,20 @@
               <ul>
                 <li ng-if="sharedHealines.length > 0" style="padding-bottom: 0">
                   <h6 style="color: orange">Shared headlines</h6>
-                  <p ng-repeat="j in sharedHealines | filter : news">
+                  <h3 ng-repeat="j in sharedHealines | filter : news" class="post-list-small__entry-title">
                     <a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}"><b>{{j.title}}</b> &nbsp;&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-click="unlove(j)" style="cursor: pointer;color:orange"></i> 
-                  </p>
+                  </h3>
                   <hr>
                 </li>
-                <li style="padding-bottom: 0">
+                <!--<li style="padding-bottom: 0">
                  <img src="/assets/img/face-of-rank.jpg"  style="width: 38%;height: auto;float: right;">
-                </li>
+                </li>-->
                 <li style="padding-top: 0" class="post-list-small__item">
                 <h6 style="color: orange">Headlines ( {{headLines.length}} )</h6>
                 <article class="post-list-small__entry">
                 <h3 ng-repeat="j in headLines | orderBy: '-pubDate' | filter: news" ng-if="j.title" class="post-list-small__entry-title"><a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}">{{j.title}} &nbsp;&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-click="unlove(j)" style="cursor: pointer;color:orange"></i> 
                 <small style="color: lightBlue" class="" ng-if="item.isNow">new</small></h3>
+                <
                 </article>
                 </li>
               </ul>

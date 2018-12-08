@@ -47,21 +47,27 @@ exports.saveShared = function(req,res){
 
 	var shared = new model.share(req.body);
 	shared.save(function(err,info){
+		if(err){
+			console.log(err)
+			res.send({error: "not saved, error occured."})
+		} else {
+			res.json({status: 'success'});
+		}
 		console.log("shared headlines saved!");
 	})
-	res.json({});
+	
 }
 
 
 exports.getSavedShared = function(req,res){
-	var model = req.model
+	var model = req.model;
  	model.share.findOne({id:req.query.id},function(err,data){
  		console.log(data)
  		if(err) throw err;
  		if(data) {
  			res.json(data);
  		} else {
- 			res.end({message: "Oops! https://goodmorning9ja.com could not find the shared headlines you requested"})
+ 			res.end("Oops! https://goodmorning9ja.com could not find the shared headlines you requested")
  		}
  	})
  	//res.render('index',{shared: []});
