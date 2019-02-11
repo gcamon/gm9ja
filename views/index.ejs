@@ -739,7 +739,7 @@
                 <li ng-if="sharedHealines.length > 0" style="padding-bottom: 0">
                   <h6 style="color: orange">Shared headlines</h6>
                   <p ng-repeat="j in sharedHealines | filter : news" class="post-list-small__entry-title" style="border-bottom: 1px solid rgba(0,0,0,0.3);font-size: 16px">
-                    <a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}"><b>{{j.title}}</b> &nbsp;&nbsp;&nbsp;<small style="color: orange;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-click="unlove(j)" style="cursor: pointer;color:orange"></i> 
+                    <a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}">{{j.title}} &nbsp;&nbsp;&nbsp;<small style="color: orange;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-click="unlove(j)" style="cursor: pointer;color:orange"></i> 
                   </p>
                   <hr>
                 </li>
