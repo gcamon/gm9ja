@@ -277,7 +277,7 @@
 
 		feeds.naij = [
 			{
-				name: "naija.ng",
+				name: "naija ng",
 				url: "https://www.naija.ng/rss/all.rss",
 				type: "latest news",
 				protocol: "https"
@@ -320,43 +320,43 @@
 
 		feeds.expressCo = [
 			{
-				name: "Express.co.uk",
+				name: "Express co uk",
 				url: "https://www.express.co.uk/posts/rss/65/sport",
 				type: "sports",
 				protocol: "https"
 			},
 			{
-				name: "Express.co.uk",
+				name: "Express co uk",
 				url: "https://www.express.co.uk/posts/rss/78/world",
 				type: "latest news",
 				protocol: "https"
 			},
 			{
-				name: "Express.co.uk",
+				name: "Express co uk",
 				url: "https://www.express.co.uk/posts/rss/78/world",
 				type: "world",
 				protocol: "https"
 			},
 			{
-				name: "Express.co.uk",
+				name: "Express co uk",
 				url: "https://www.express.co.uk/posts/rss/21/finance",
 				type: "business",
 				protocol: "https"
 			},
 			{
-				name: "Express.co.uk",
+				name: "Express co uk",
 				url: "https://www.express.co.uk/posts/rss/18/entertainment",
 				type: "entertainment",
 				protocol: "https"
 			},
 			{
-				name: "Express.co.uk",
+				name: "Express co uk",
 				url: "https://www.express.co.uk/posts/rss/139/politics",
 				type: "politics",
 				protocol: "https"
 			},
 			{
-				name: "Express.co.uk",
+				name: "Express co uk",
 				url: "https://www.express.co.uk/posts/rss/59/tech",
 				type: "technology",
 				protocol: "https"
@@ -489,7 +489,7 @@
 
 		feeds.allafrica = [
 			{
-				name: "allafrica.com",
+				name: "allafrica com",
 				url: "https://allafrica.com/tools/headlines/rdf/westafrica/headlines.rdf",
 				type: "latest news",
 				protocol: "https"
@@ -557,7 +557,7 @@
 
 		feeds.dailypost = [
 			{
-				name: "dailypost.ng",
+				name: "dailypost ng",
 				url: "http://dailypost.ng/feed/",
 				type: "latest news",
 				protocol: "https"
@@ -587,7 +587,7 @@
 
 		feeds.todayng = [
 			{
-				name: "today.ng",
+				name: "today ng",
 				url: "https://www.today.ng/feed",
 				type: "latest news",
 				protocol: "https"
@@ -605,13 +605,13 @@
 
 		feeds.goalcom = [
 			{
-				name: "goal.com",
+				name: "goal com",
 				url: "http://www.goal.com/en-us/feeds/news",
 				type: "latest news",
 				protocol: "http"
 			},
 			{
-				name: "goal.com",
+				name: "goal com",
 				url: "http://www.goal.com/en-us/feeds/news",
 				type: "sports",
 				protocol: "http"
@@ -702,7 +702,7 @@
 
 		feeds.football = [
 			{
-				name: "goal.com",
+				name: "goal com",
 				url: "http://www.goal.com/en/feeds/news?fmt=rss&ICID=HP",
 				type: "football",
 				protocol: "http"
@@ -714,134 +714,134 @@
 				protocol: "https"
 			},
 			{
-				name: "fourfourtwo.com",
+				name: "fourfourtwo",
 				url: "https://www.fourfourtwo.com/rss.xml",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "90mins.in",
+				name: "90mins",
 				url: "https://www.90min.com/posts.rss",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "teamtalk.com",
+				name: "teamtalk",
 				url: "https://www.teamtalk.com/feed",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "soccernews.com",
+				name: "soccernews",
 				url: "http://www.soccernews.com/feed/",
 				type: "football",
 				protocol: "http"
 			},
 			{
-				name: "footballfancast.com",
+				name: "footballfancast",
 				url: "https://www.footballfancast.com/feed",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "caughtoffside.com",
+				name: "caughtoffside",
 				url: "https://www.caughtoffside.com/feed/",
 				type: "football",
 				protocol: "https"
 			},
 			
 			{
-				name: "sportslens.com",
+				name: "sportslens",
 				url: "https://sportslens.com/feed/",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "foottheball.com",
+				name: "foottheball",
 				url: "https://www.foottheball.com/feed",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "worldsoccer.com",
+				name: "worldsoccer",
 				url: "https://www.worldsoccer.com/feed",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "TheFootballDaily.com",
+				name: "TheFootballDaily",
 				url: "https://www.youtube.com/feeds/videos.xml?user=TheFootballDaily",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "marca.com",
+				name: "marca",
 				url: "http://e00-marca.uecdn.es/rss/en/index.xml",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "football365.com",
+				name: "football365",
 				url: "https://www.football365.com/feed",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "manutd.com",
+				name: "manutd",
 				url: "https://www.manutd.com/Feeds/NewsSecondRSSFeed",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "calciomercato.com",
+				name: "calciomercato",
 				url: "https://www.calciomercato.com/en/feed",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "squawka.com",
+				name: "squawka",
 				url: "http://www.squawka.com/news/feed",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "thisisanfield.com",
+				name: "thisisanfield",
 				url: "https://www.thisisanfield.com/feed/",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "football-italia.net",
+				name: "football-italia",
 				url: "https://www.football-italia.net/rss.xml",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "arseblog.com",
+				name: "arseblog",
 				url: "https://arseblog.com/feed",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "whoateallthepies.tv",
+				name: "whoateallthepies",
 				url: "http://www.whoateallthepies.tv/feed",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "talkchelsea.net",
+				name: "talkchelsea",
 				url: "https://www.talkchelsea.net/feed/",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "shoot.co.uk",
+				name: "shootcouk",
 				url: "https://www.shoot.co.uk/feed/",
 				type: "football",
 				protocol: "https"
 			},
 			{
-				name: "footballaction.co.uk",
+				name: "footballactioncouk",
 				url: "http://footballaction.co.uk/feed",
 				type: "football",
 				protocol: "http"
@@ -1142,7 +1142,7 @@
     $scope.love = function(item){
     	item.isLoved = true;
     	$scope.isLoaded = true    	
-    	item.id = Math.floor(Math.random() * 9999) + "" + Math.floor(Math.random() * 9999)
+    	item.id = Math.floor(Math.random() * 99999) + "" + Math.floor(Math.random() * 99999)
     	lovedOnes.push(item);
     }
 
@@ -1176,7 +1176,7 @@
     		var str = "https://goodmorning9ja.com/share/" + (($scope.pageType == "latest news") ? "latest" : $scope.pageType)  + "/" + id + "/gm";
 
     		for(var i = 0; i < lovedOnes.length; i++){
-    			str += "%0A%0A"+ createNewsLink(lovedOnes[i].title) + ""
+    			str += "%0A%0A"+ createNewsLink(lovedOnes[i].title) + " ( " + lovedOnes[i].name + " )"
     		}
 
     		var tm = str;//str.slice(0, -2)

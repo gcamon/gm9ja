@@ -26,6 +26,8 @@
   <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/apple-touch-icon-114x114.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
+ <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
+ 
 
   <noscript>
       <META HTTP-EQUIV="Refresh" CONTENT="0;URL=/assets/show-error.html">
@@ -249,10 +251,12 @@
               <li><a href="#"><i class="fa fa-envelope"></i> ede.obinna27@gmail.com</a></li>
               <li><a href="#"><i class="fa fa-phone"></i> +234 809 6461 927</a></li>
             </ul>-->
-            <img src="/assets/img/sun1.png" style="width: 2.9em;height: 2.9em">
-            <a href="/" style="color: lightBlue;font-size: 24px;position: relative;">
-            <b>GoodMorning9ja</b>
-            <span style="color: #eee;font-size: 14px;position: absolute;bottom: -15px;left: 0">latest news headlines</span></a>
+            <!--<img src="/assets/img/sun1.png" style="width: 2.9em;height: 2.9em">-->
+            <a href="/">
+            <img src="/assets/img/gmlogo.png" style="width: 120px;height: auto;">
+            <!--<b>GoodMorning9ja</b>
+            <span style="color: #eee;font-size: 14px;position: absolute;bottom: -15px;left: 0">latest news headlines</span>-->
+            </a>
           </div>
           
           <!-- Socials -->
@@ -533,7 +537,7 @@
         Newspipe</span>
          <div class="newsticker">
           <ul class="newsticker__list">
-            <li class="newsticker__item" ng-repeat="i in headLines"><a href="{{i.link}}" class="newsticker__item-url" target="_blank" ng-class="{'visited-link': i.isVisited}" ng-click="visited($event,i)"><b>{{i.title}}</b>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ccc" am-time-ago="i.pubDate"></span></a></li>
+            <li class="newsticker__item" ng-repeat="i in headLines"><a href="{{i.link}}" class="newsticker__item-url" target="_blank" ng-class="{'visited-link': i.isVisited}" ng-click="visited($event,i)">{{i.title}}&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ccc" am-time-ago="i.pubDate"></span></a></li>
             <!--<li class="newsticker__item"><a href="single-post-1.html" class="newsticker__item-url">Satelite cost tens of millions or even hundreds of millions of dollars to build</a></li>
             <li class="newsticker__item"><a href="single-post-3.html" class="newsticker__item-url">8 Hidden Costs of Starting and Running a Business</a></li> -->        
           </ul>
@@ -734,9 +738,9 @@
               <ul>
                 <li ng-if="sharedHealines.length > 0" style="padding-bottom: 0">
                   <h6 style="color: orange">Shared headlines</h6>
-                  <h3 ng-repeat="j in sharedHealines | filter : news" class="post-list-small__entry-title">
-                    <a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}"><b>{{j.title}}</b> &nbsp;&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-click="unlove(j)" style="cursor: pointer;color:orange"></i> 
-                  </h3>
+                  <p ng-repeat="j in sharedHealines | filter : news" class="post-list-small__entry-title" style="border-bottom: 1px solid rgba(0,0,0,0.3);font-size: 16px">
+                    <a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}"><b>{{j.title}}</b> &nbsp;&nbsp;&nbsp;<small style="color: orange;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-click="unlove(j)" style="cursor: pointer;color:orange"></i> 
+                  </p>
                   <hr>
                 </li>
                 <!--<li style="padding-bottom: 0">
@@ -745,8 +749,8 @@
                 <li style="padding-top: 0" class="post-list-small__item">
                 <h6 style="color: orange">Headlines ( {{headLines.length}} )</h6>
                 <article class="post-list-small__entry">
-                <h3 ng-repeat="j in headLines | orderBy: '-pubDate' | filter: news" ng-if="j.title" class="post-list-small__entry-title"><a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}">{{j.title}} &nbsp;&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-click="unlove(j)" style="cursor: pointer;color:orange"></i> 
-                <small style="color: lightBlue" class="" ng-if="item.isNow">new</small></h3>
+                <p ng-repeat="j in headLines | orderBy: '-pubDate' | filter: news" ng-if="j.title" class="post-list-small__entry-title" style="border-bottom: 1px solid rgba(0,0,0,0.3);font-size: 16px"><a href="{{j.link}}" target="_blank" ng-click="visited($event,j)" ng-class="{'visited-link': j.isVisited}">{{j.title}} &nbsp;&nbsp;&nbsp;<small style="color: orange;text-transform: lowercase;">{{j.name}}</small>&nbsp;&nbsp;<small am-time-ago="j.pubDate"></small> </i></a> &nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!j.isLoved" ng-click="love(j)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="j.isLoved" ng-click="unlove(j)" style="cursor: pointer;color:orange"></i> 
+                <small style="color: lightBlue" class="" ng-if="item.isNow">new</small></p>
                 <
                 </article>
                 </li>
@@ -936,9 +940,9 @@
             <ul>
               <li class="post-list-small__item">
                   <article class="post-list-small__entry">
-                    <h3 ng-repeat="n in featured | orderBy: '-pubDate' | filter : feature" class="post-list-small__entry-title">
-                         <a href="{{n.link}}" target="_blank" ng-class="{'visited-link': n.isVisited}" ng-click="visited($event,n)">{{n.title}}&nbsp;&nbsp;<small style="color: #ccc;text-transform: lowercase;">{{n.name}}</small>&nbsp;<small am-time-ago="n.pubDate" style="color: #ccc"></small></a> &nbsp;&nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!n.isLoved" ng-click="love(n)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="n.isLoved" ng-click="unlove(n)" style="cursor: pointer;color:orange"></i>
-                    </h3>
+                    <p ng-repeat="n in featured | orderBy: '-pubDate' | filter : feature" class="post-list-small__entry-title" style="border-bottom: 1px solid rgba(0,0,0,0.3);font-size: 16px">
+                         <a href="{{n.link}}" target="_blank" ng-class="{'visited-link': n.isVisited}" ng-click="visited($event,n)">{{n.title}}&nbsp;&nbsp;<small style="color: orange;text-transform: lowercase;">{{n.name}}</small>&nbsp;<small am-time-ago="n.pubDate" style="color: #ccc"></small></a> &nbsp;&nbsp;&nbsp; <i class="fa fa-heart-o" ng-if="!n.isLoved" ng-click="love(n)" style="cursor: pointer;"></i> <i class="fa fa-heart" ng-if="n.isLoved" ng-click="unlove(n)" style="cursor: pointer;color:orange"></i>
+                    </p>
                   </article>
               </li>
               <!--<li><a href="categories.html">Lifestyle <span class="categories-count">7</span></a></li>
