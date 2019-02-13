@@ -187,22 +187,22 @@
         </li>        
 
         <!-- Categories -->
-        <li>
+        <!--<li>
           <a href="/lifestyle" class="sidenav__menu-url">Lyfestyle</a>
-        </li>
+        </li>-->
         <li>
           <a href="/business" class="sidenav__menu-url">Business</a>
         </li>
-        <li>
+        <!--<li>
           <a href="/sports" class="sidenav__menu-url">Sports</a>
         </li>
          <li>
           <a href="/entertainment" class="sidenav__menu-url">Entertainment</a>
         </li>
        
-        <!-- Categories -->
+        
         <li>
-          <a href="/technology" class="sidenav__menu-url">Technology</a>
+          <a href="/technology" class="sidenav__menu-url">Technology</a>-->
         </li>
         <li>
           <a href="/world" class="sidenav__menu-url">World</a>
@@ -724,10 +724,15 @@
                <a href="" ng-click="getLink()" class="btn btn-simple btn-sm share-whatsapp"><i class="fa fa-share"></i> <i class="fa fa-heart" style="color: orange"></i> whatsapp web</a>
               
             </div>-->
+            <div class="switch-for-mobile">
+              <a href=""  style="text-decoration: underline;" ng-click="switch()">{{(!isNormal) ? 'See also Latest Headlines' : "Top Stories"}}</a>
+              <a href="/football" style="margin-left: 10px;text-decoration: underline;" ng-click="switch()">Football</a>
+              <a href="/" style="margin-left: 10px;text-decoration: underline;" ng-click="switch()">Go to home</a>
+            </div>
             <div>
                <a href="" ng-click="refresh()" title="load new headlines" class="refres"><i class="fa fa-refresh" style="font-size: 14px;color: orange"></i> Refresh</a>
-               <a href="" ng-click="getLink()" class=""><!--<i class="fa fa-share"></i>--> <i class="fa fa-heart" style="color: orange;margin-left: 15px"></i> whatsapp web</a>
-               <a href="" class="switch-for-mobile" style="margin-left: 10px" ng-click="switch()">{{(!isNormal) ? 'See also Latest Headlines' : "See also Top Stories"}}</a>
+               <a href="" ng-click="getLink()" class=""><!--<i class="fa fa-share"></i>--> <i class="fa fa-heart" style="color: orange;margin-left: 15px"></i> whatsapp web</a><br>
+               
                <input type="text" name="" class="filter" ng-model="news" placeholder="Search by headline keywords, news source or date (mm/dd)">
             </div>
 

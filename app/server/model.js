@@ -4,7 +4,7 @@ mongoose.Promise = global.Promise;
 var dbURL = "mongodb://127.0.0.1:27017/newsDB" //"mongodb://127.0.0.1:27017/medicalmull"; 45.55.204.222
 var options = {
 	autoReconnect: true,
-	useMongoClient: true,
+	//useMongoClient: true,
 	reconnectTries: Number.MAX_VALUE, // Never stop trying to reconnect
 	reconnectInterval: 500, // Reconnect every 500ms
 	poolSize: 10, // Maintain up to 10 socket connections
