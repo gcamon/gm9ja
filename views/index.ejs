@@ -110,6 +110,10 @@
       display: none;
     }
 
+    .no-mobile {
+      display: inline-block;
+    }
+
     .post-list-small__entry-title{
       padding: 5px 0;
     }
@@ -137,6 +141,10 @@
 
       .sidebar {
         margin-top: -80px!important; 
+      }
+
+      .no-mobile {
+        display: none;
       }
 
       .share-whatsapp {
@@ -731,7 +739,7 @@
             </div>
             <div>
                <a href="" ng-click="refresh()" title="load new headlines" class="refres"><i class="fa fa-refresh" style="font-size: 14px;color: orange"></i> Refresh</a>
-               <a href="" ng-click="getLink()" class=""><!--<i class="fa fa-share"></i>--> <i class="fa fa-heart" style="color: orange;margin-left: 15px"></i> whatsapp web</a><br>
+               <a href="" ng-click="getLink()" class="no-mobile"><i class="fa fa-heart" style="color: orange;margin-left: 15px"></i> whatsapp web</a><br>
                
                <input type="text" name="" class="filter" ng-model="news" placeholder="Search by headline keywords, news source or date (mm/dd)">
             </div>
