@@ -12,6 +12,8 @@
 		var link = window.location.href;
 		var path = link.split('/');
 
+		console.log(path)
+
 		//combine path for fetching feeds from back end based on the page in view
 		var url2 = (window.location.pathname === '/') ? 
 		window.location.href + "feeds" : (path.length <= 4) ? window.location.href + "/feeds" :
@@ -1123,6 +1125,9 @@
   	}
 
   	loadFeeds();
+
+  	$scope.holdShared = (category.length > 4) ? window.location.pathname : false;
+
 
     $scope.visited = function(e,item,shared){
     	if(item) {

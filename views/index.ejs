@@ -736,6 +736,7 @@
               <a href=""  style="text-decoration: underline;" ng-click="switch()">{{(!isNormal) ? 'See also Latest Headlines' : "Top Stories"}}</a>
               <a href="/football" style="margin-left: 10px;text-decoration: underline;">Football</a>
               <a href="/" style="margin-left: 10px;text-decoration: underline;">Go to home</a>
+              <a href="{{holdShared}}" style="margin-left: 10px;text-decoration: underline;" ng-if="holdShared">Shared Headline</a>
             </div>
             <div>
                <a href="" ng-click="refresh()" title="load new headlines" class="refres"><i class="fa fa-refresh" style="font-size: 14px;color: orange"></i> Refresh</a>
