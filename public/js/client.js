@@ -1125,8 +1125,8 @@
   	}
 
   	loadFeeds();
-
-  	$scope.holdShared = (category.length > 4) ? window.location.pathname : false;
+  	console.log(window.location.pathname)
+  	$scope.holdShared = (category[1]) ? window.location.pathname : false;
 
 
     $scope.visited = function(e,item,shared){
