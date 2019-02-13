@@ -1125,8 +1125,13 @@
   	}
 
   	loadFeeds();
+
+  	//sets the shared link for navigation
   	console.log(window.location.pathname)
-  	$scope.holdShared = (category[1]) ? window.location.pathname : false;
+  	if(category[1] == "share")
+  		localManager.setValue('sharedlink',window.location.pathname)
+
+  	$scope.holdShared = (category[1] == 'share' || localManager.getValue('sharedlink')) ? localManager.getValue('sharedlink') : false;
 
 
     $scope.visited = function(e,item,shared){
